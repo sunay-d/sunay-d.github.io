@@ -14,7 +14,7 @@ function generate(){
                 return false;
                 break;
             }else {
-                return true;
+                continue;
             }
         }
     }
