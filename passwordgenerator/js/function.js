@@ -1,3 +1,10 @@
+
+const characters = "%!*@#$()^&";
+
+function regExpEscape(literal_string) {
+    return literal_string.replace(/[-[\]{}()*+!<=:?.\/\\^$|#\s,]/g, '\\$&');
+};
+
 function generate(){
     var length = document.getElementById("length").value;
     var spec = document.getElementById("chars").value;
@@ -5,19 +12,6 @@ function generate(){
     var upper = document.getElementById("upper").checked;
     var lower = document.getElementById("lower").checked;
 
-    function specCheck(spec) {
-        for (let i=0; i<10; i++) {
-            if (i==spec.length){
-                return true;
-                break;
-            }else if ('%!*@#$()^&'.search(spec[i])==-1){
-                return false;
-                break;
-            }else {
-                continue;
-            }
-        }
-    }
     if (isNaN(Number(length)) || length<=3 || length>25){
         alert("Length must be an integer between 4 and 25");}
     else if (!specCheck(spec)){
@@ -25,6 +19,18 @@ function generate(){
     }
     else {
         document.getElementById("display").value = passwordGenerator(length,spec,num,upper,lower);}
+}
+
+function specCheck(spec) {
+    for (let i=0; i<10; i++) {
+        if (i==spec.length){
+            return true;
+            break;
+        }else if (regExpEscape(characters).search(regExpEscape(spec[i]))===-1){
+            return false;
+            break;
+        }
+    }
 }
 
 function passwordGenerator(length,spec,num,upper,lower){
