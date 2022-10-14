@@ -31,6 +31,7 @@ function specCheck(spec) {
             break;
         }
     }
+    return true;
 }
 
 function passwordGenerator(length,spec,num,upper,lower){
