@@ -1,0 +1,89 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    background-color: grey;
+    padding: 0;
+    margin: 0;
+}
+h1{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+.wrapper {
+    margin: auto;
+    padding: 2px;
+    width: 400px;
+    border-radius: 10px;
+    background-color: black;
+    color:white;
+}
+
+.screen{
+    text-align: right;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px 5px;
+    font-size: 60px;
+}   
+
+.calc-button-row{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-bottom: 0.5%;
+}
+
+.calc-button{
+    background-color:black;
+    color:whitesmoke;
+    border: none;
+    /*border-radius: 100%;*/
+    font-size: 40px;
+    height: 100px;
+    flex-basis: 24.5%;
+}
+
+.calc-button:hover{
+    background-color: grey;
+}
+
+.calc-button:active{
+    background-color: #bbbcbe;
+}
+
+.double {
+    color: red;
+    flex-basis: 49.7%;
+}
+
+.double:hover {
+    background-color: rgb(255, 104, 104);
+    border-radius: 0;
+}
+
+.triple {
+    flex-basis: 74.8%;
+    border-radius: 0;
+}
+
+#larr {
+    color: green;
+}
+
+#equals {
+    background-color: green;
+    color: whitesmoke;
+    border-radius: 100%;
+}
+
+.calc-button:last-child{
+    background-color: black;
+    color: green;
+}
+
+.calc-button:last-child:hover, #larr:hover, #equals:hover{
+    background-color: greenyellow;
+}
