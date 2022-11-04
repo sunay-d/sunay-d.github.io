@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+} 
+
+body {
+    height: 100vh;
+    margin: 0;
+    background-color: #bab2b5;
+    font-family: 'Philosopher', sans-serif;
+}
+h1 {
+    margin: 3rem 6%;
+    text-align: left;
+    font-size: 3rem;
+}
+
+.newpuzzle {
+    margin-left: 6%;
+    display: inline-block;
+    width: fit-content;
+    display: grid;
+    grid-template-areas: (header, btn, btn, btn); 
+}
+h4 {
+    font-size: 1.5rem;
+}
+button {
+    margin-top: 0.5rem;
+    font-family:'Philosopher', sans-serif;
+    height: 2rem;
+    width: 5rem;
+}
+.board {
+    margin-top: -15rem;
+    display: inline-block;
+    width: fit-content;
+    margin-left: 34%;
+    background-color: black;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    column-gap: 0.2rem;
+    row-gap: 0.2rem;
+}
+
+.square {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+}
+.t1, .t3, .t5, .t7, .t9 {
+    background-color: /*#bab2b5*/ #edc7b7;
+}
+
+.t2, .t4, .t6, .t8{
+    background-color: #eee2dc;
+}
+.cell {
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid black;
+    font-size: 2.2rem;
+    text-align: center;
+    font-weight: bolder;
+    cursor: default;
+}
+
+.cell[original="false"]:hover {
+    background-color: #bab2b5;
+    cursor:text;
+    color:gray;
+}
