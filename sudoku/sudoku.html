@@ -6,120 +6,136 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap">
         <link rel="stylesheet" href="sudoku.css">
         <title>Sudoku</title>
 </head>
+<body>
         <h1>SUDOKU</h1>
         <div class="newpuzzle">
                 <h4>New Puzzle</h4>
-                <button onclick="displaySudoku(generatePuzzle(35))">Easy</button>
-                <button onclick="displaySudoku(generatePuzzle(45))">Medium</button>
-                <button onclick="displaySudoku(generatePuzzle(60))">Hard</button>    
+                <button class="btn" id="easy">Easy</button>
+                <button class="btn" id="medium">Medium</button>
+                <button class="btn" id="hard">Hard</button>    
         </div>
-
-        <div class="board">
-                <div class="square">
-                        <div  class="cell r1 c1 t1" id="11" original="true"></div>
-                        <div  class="cell r1 c2 t1" id="12" original="true"></div>
-                        <div  class="cell r1 c3 t1" id="13" original="true"></div>
-                        <div  class="cell r2 c1 t1" id="21" original="true"></div>
-                        <div  class="cell r2 c2 t1" id="22" original="true"></div>
-                        <div  class="cell r2 c3 t1" id="23" original="true"></div>
-                        <div  class="cell r3 c1 t1" id="31" original="true"></div>
-                        <div  class="cell r3 c2 t1" id="32" original="true"></div>
-                        <div  class="cell r3 c3 t1" id="33" original="true"></div>
+        <div class="game">
+                <div class="board">
+                        <div class="square1">
+                                <div  class="cell" id="11" original="true" tabindex="1"></div>
+                                <div  class="cell" id="12" original="true" tabindex="1"></div>
+                                <div  class="cell" id="13" original="true" tabindex="1"></div>
+                                <div  class="cell" id="21" original="true" tabindex="1"></div>
+                                <div  class="cell" id="22" original="true" tabindex="1"></div>
+                                <div  class="cell" id="23" original="true" tabindex="1"></div>
+                                <div  class="cell" id="31" original="true" tabindex="1"></div>
+                                <div  class="cell" id="32" original="true" tabindex="1"></div>
+                                <div  class="cell" id="33" original="true" tabindex="1"></div>
+                        </div>
+                        <div class="square2">
+                                <div  class="cell" id="14" original="true" tabindex="1"></div>
+                                <div  class="cell" id="15" original="true" tabindex="1"></div>
+                                <div  class="cell" id="16" original="true" tabindex="1"></div>
+                                <div  class="cell" id="24" original="true" tabindex="1"></div>
+                                <div  class="cell" id="25" original="true" tabindex="1"></div>
+                                <div  class="cell" id="26" original="true" tabindex="1"></div>
+                                <div  class="cell" id="34" original="true" tabindex="1"></div>
+                                <div  class="cell" id="35" original="true" tabindex="1"></div>
+                                <div  class="cell" id="36" original="true" tabindex="1"></div>    
+                        </div>
+                        <div class="square1">
+                                <div  class="cell" id="17" original="true" tabindex="1"></div>
+                                <div  class="cell" id="18" original="true" tabindex="1"></div>
+                                <div  class="cell" id="19" original="true" tabindex="1"></div>
+                                <div  class="cell" id="27" original="true" tabindex="1"></div>
+                                <div  class="cell" id="28" original="true" tabindex="1"></div>
+                                <div  class="cell" id="29" original="true" tabindex="1"></div>
+                                <div  class="cell" id="37" original="true" tabindex="1"></div>
+                                <div  class="cell" id="38" original="true" tabindex="1"></div>
+                                <div  class="cell" id="39" original="true" tabindex="1"></div>
+                        </div>
+                        <div class="square2">
+                                <div  class="cell" id="41" original="true" tabindex="1"></div>
+                                <div  class="cell" id="42" original="true" tabindex="1"></div>
+                                <div  class="cell" id="43" original="true" tabindex="1"></div>
+                                <div  class="cell" id="51" original="true" tabindex="1"></div>
+                                <div  class="cell" id="52" original="true" tabindex="1"></div>
+                                <div  class="cell" id="53" original="true" tabindex="1"></div>
+                                <div  class="cell" id="61" original="true" tabindex="1"></div>
+                                <div  class="cell" id="62" original="true" tabindex="1"></div>
+                                <div  class="cell" id="63" original="true" tabindex="1"></div>
+                        </div>
+                        <div class="square1">
+                                <div  class="cell" id="44" original="true" tabindex="1"></div>
+                                <div  class="cell" id="45" original="true" tabindex="1"></div>
+                                <div  class="cell" id="46" original="true" tabindex="1"></div>
+                                <div  class="cell" id="54" original="true" tabindex="1"></div>
+                                <div  class="cell" id="55" original="true" tabindex="1"></div>
+                                <div  class="cell" id="56" original="true" tabindex="1"></div>
+                                <div  class="cell" id="64" original="true" tabindex="1"></div>
+                                <div  class="cell" id="65" original="true" tabindex="1"></div>
+                                <div  class="cell" id="66" original="true" tabindex="1"></div>
+                        </div>
+                        <div class="square2">
+                                <div  class="cell" id="47" original="true" tabindex="1"></div>
+                                <div  class="cell" id="48" original="true" tabindex="1"></div>
+                                <div  class="cell" id="49" original="true" tabindex="1"></div>
+                                <div  class="cell" id="57" original="true" tabindex="1"></div>
+                                <div  class="cell" id="58" original="true" tabindex="1"></div>
+                                <div  class="cell" id="59" original="true" tabindex="1"></div>
+                                <div  class="cell" id="67" original="true" tabindex="1"></div>
+                                <div  class="cell" id="68" original="true" tabindex="1"></div>
+                                <div  class="cell" id="69" original="true" tabindex="1"></div>
+                        </div>
+                        <div class="square1">
+                                <div  class="cell" id="71" original="true" tabindex="1"></div>
+                                <div  class="cell" id="72" original="true" tabindex="1"></div>
+                                <div  class="cell" id="73" original="true" tabindex="1"></div>
+                                <div  class="cell" id="81" original="true" tabindex="1"></div>
+                                <div  class="cell" id="82" original="true" tabindex="1"></div>
+                                <div  class="cell" id="83" original="true" tabindex="1"></div>
+                                <div  class="cell" id="91" original="true" tabindex="1"></div>
+                                <div  class="cell" id="92" original="true" tabindex="1"></div>
+                                <div  class="cell" id="93" original="true" tabindex="1"></div>
+                        </div> 
+                        <div class="square2">
+                                <div  class="cell" id="74" original="true" tabindex="1"></div>
+                                <div  class="cell" id="75" original="true" tabindex="1"></div>
+                                <div  class="cell" id="76" original="true" tabindex="1"></div>
+                                <div  class="cell" id="84" original="true" tabindex="1"></div>
+                                <div  class="cell" id="85" original="true" tabindex="1"></div>
+                                <div  class="cell" id="86" original="true" tabindex="1"></div>
+                                <div  class="cell" id="94" original="true" tabindex="1"></div>
+                                <div  class="cell" id="95" original="true" tabindex="1"></div>
+                                <div  class="cell" id="96" original="true" tabindex="1"></div>
+                        </div>
+                        <div class="square1">
+                                <div  class="cell" id="77" original="true" tabindex="1"></div>
+                                <div  class="cell" id="78" original="true" tabindex="1"></div>
+                                <div  class="cell" id="79" original="true" tabindex="1"></div>
+                                <div  class="cell" id="87" original="true" tabindex="1"></div>
+                                <div  class="cell" id="88" original="true" tabindex="1"></div>
+                                <div  class="cell" id="89" original="true" tabindex="1"></div>
+                                <div  class="cell" id="97" original="true" tabindex="1"></div>
+                                <div  class="cell" id="98" original="true" tabindex="1"></div>
+                                <div  class="cell" id="99" original="true" tabindex="1"></div>
+                        </div>
                 </div>
-                <div class="square">
-                        <div  class="cell r1 c4 t2" id="14" original="true"></div>
-                        <div  class="cell r1 c5 t2" id="15" original="true"></div>
-                        <div  class="cell r1 c6 t2" id="16" original="true"></div>
-                        <div  class="cell r2 c4 t2" id="24" original="true"></div>
-                        <div  class="cell r2 c5 t2" id="25" original="true"></div>
-                        <div  class="cell r2 c6 t2" id="26" original="true"></div>
-                        <div  class="cell r3 c4 t2" id="34" original="true"></div>
-                        <div  class="cell r3 c5 t2" id="35" original="true"></div>
-                        <div  class="cell r3 c6 t2" id="36" original="true"></div>
+                <div class="numbers">
+                        <button id="1" class="number">1</button>
+                        <button id="2" class="number">2</button>
+                        <button id="3" class="number">3</button>
+                        <button id="4" class="number">4</button>
+                        <button id="5" class="number">5</button>
+                        <button id="6" class="number">6</button>
+                        <button id="7" class="number">7</button>
+                        <button id="8" class="number">8</button>
+                        <button id="9" class="number">9</button>
+                        <button id="0" class="number">←</button>
                 </div>
-                <div class="square">
-                        <div  class="cell r1 c7 t3" id="17" original="true"></div>
-                        <div  class="cell r1 c8 t3" id="18" original="true"></div>
-                        <div  class="cell r1 c9 t3" id="19" original="true"></div>
-                        <div  class="cell r2 c7 t3" id="27" original="true"></div>
-                        <div  class="cell r2 c8 t3" id="28" original="true"></div>
-                        <div  class="cell r2 c9 t3" id="29" original="true"></div>
-                        <div  class="cell r3 c7 t3" id="37" original="true"></div>
-                        <div  class="cell r3 c8 t3" id="38" original="true"></div>
-                        <div  class="cell r3 c9 t3" id="39" original="true"></div>
-                </div>
-                <div class="square">
-                        <div  class="cell r4 c1 t4" id="41" original="true"></div>
-                        <div  class="cell r4 c2 t4" id="42" original="true"></div>
-                        <div  class="cell r4 c3 t4" id="43" original="true"></div>
-                        <div  class="cell r5 c1 t4" id="51" original="true"></div>
-                        <div  class="cell r5 c2 t4" id="52" original="true"></div>
-                        <div  class="cell r5 c3 t4" id="53" original="true"></div>
-                        <div  class="cell r6 c1 t4" id="61" original="true"></div>
-                        <div  class="cell r6 c2 t4" id="62" original="true"></div>
-                        <div  class="cell r6 c3 t4" id="63" original="true"></div>
-                </div>
-                <div class="square">
-                        <div  class="cell r4 c4 t5" id="44" original="true"></div>
-                        <div  class="cell r4 c5 t5" id="45" original="true"></div>
-                        <div  class="cell r4 c6 t5" id="46" original="true"></div>
-                        <div  class="cell r5 c4 t5" id="54" original="true"></div>
-                        <div  class="cell r5 c5 t5" id="55" original="true"></div>
-                        <div  class="cell r5 c6 t5" id="56" original="true"></div>
-                        <div  class="cell r6 c4 t5" id="64" original="true"></div>
-                        <div  class="cell r6 c5 t5" id="65" original="true"></div>
-                        <div  class="cell r6 c6 t5" id="66" original="true"></div>
-                </div>
-                <div class="square">
-                        <div  class="cell r4 c7 t6" id="47" original="true"></div>
-                        <div  class="cell r4 c8 t6" id="48" original="true"></div>
-                        <div  class="cell r4 c9 t6" id="49" original="true"></div>
-                        <div  class="cell r5 c7 t6" id="57" original="true"></div>
-                        <div  class="cell r5 c8 t6" id="58" original="true"></div>
-                        <div  class="cell r5 c9 t6" id="59" original="true"></div>
-                        <div  class="cell r6 c7 t6" id="67" original="true"></div>
-                        <div  class="cell r6 c8 t6" id="68" original="true"></div>
-                        <div  class="cell r6 c9 t6" id="69" original="true"></div>
-                </div>
-                <div class="square">
-                        <div  class="cell r7 c1 t7" id="71" original="true"></div>
-                        <div  class="cell r7 c2 t7" id="72" original="true"></div>
-                        <div  class="cell r7 c3 t7" id="73" original="true"></div>
-                        <div  class="cell r8 c1 t7" id="81" original="true"></div>
-                        <div  class="cell r8 c2 t7" id="82" original="true"></div>
-                        <div  class="cell r8 c3 t7" id="83" original="true"></div>
-                        <div  class="cell r9 c1 t7" id="91" original="true"></div>
-                        <div  class="cell r9 c2 t7" id="92" original="true"></div>
-                        <div  class="cell r9 c3 t7" id="93" original="true"></div>
-                </div> 
-                <div class="square">
-                        <div  class="cell r7 c4 t8" id="74" original="true"></div>
-                        <div  class="cell r7 c5 t8" id="75" original="true"></div>
-                        <div  class="cell r7 c6 t8" id="76" original="true"></div>
-                        <div  class="cell r8 c4 t8" id="84" original="true"></div>
-                        <div  class="cell r8 c5 t8" id="85" original="true"></div>
-                        <div  class="cell r8 c6 t8" id="86" original="true"></div>
-                        <div  class="cell r9 c4 t8" id="94" original="true"></div>
-                        <div  class="cell r9 c5 t8" id="95" original="true"></div>
-                        <div  class="cell r9 c6 t8" id="96" original="true"></div>
-                </div>
-                <div class="square">
-                        <div  class="cell r7 c7 t9" id="77" original="true"></div>
-                        <div  class="cell r7 c8 t9" id="78" original="true"></div>
-                        <div  class="cell r7 c9 t9" id="79" original="true"></div>
-                        <div  class="cell r8 c7 t9" id="87" original="true"></div>
-                        <div  class="cell r8 c8 t9" id="88" original="true"></div>
-                        <div  class="cell r8 c9 t9" id="89" original="true"></div>
-                        <div  class="cell r9 c7 t9" id="97" original="true"></div>
-                        <div  class="cell r9 c8 t9" id="98" original="true"></div>
-                        <div  class="cell r9 c9 t9" id="99" original="true"></div>
-                </div>
+                <button id="check">Check Solution</button>
         </div>
-<body>
+        
+        
     <script src="sudoku.js"></script>
     <script src="sudoku2.js"></script>
 </body>

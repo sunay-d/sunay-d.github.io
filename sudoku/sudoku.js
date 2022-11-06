@@ -1,3 +1,10 @@
+let freeCells;
+let selectedCell;
+let buttons = Array.from(document.querySelectorAll(".number"));
+eventHandlers();
+let displayedSudoku = generatePuzzle(45);
+displaySudoku(displayedSudoku);
+
 function checkRows(r,n,sudoku){
     for (let c=0; c<9; c++){
         if (sudoku[r][c] === n){
@@ -44,12 +51,16 @@ function checkEntry(r,c,n,sudoku){
 function displaySudoku(sudoku){
     for (let r=0; r<9; r++){
         for (let c=0; c<9; c++){
+            let id = (r+1).toString()+(c+1).toString();
             if (sudoku[r][c] != 0){
-                let id = (r+1).toString()+(c+1).toString();
-                document.getElementById(id).innerHTML = sudoku[r][c] 
+                document.getElementById(id).innerHTML = sudoku[r][c]; 
+            }
+            else {
+                document.getElementById(id).innerHTML = "";
             }
         }
     }
+    displayedSudoku = sudoku;
 }
 function generateSudokuRow(r,num,sudoku){
     col = [0,1,2,3,4,5,6,7,8];
@@ -69,7 +80,7 @@ function generateSudokuRow(r,num,sudoku){
     }
 }
 function generateRandomSudoku(){
-    let sudoku1 = [
+    let sudoku = [
         [0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0],
@@ -82,11 +93,11 @@ function generateRandomSudoku(){
     ]
     for (let num=1; num<10; num++){
         for (let r=0; r<9; r++){
-            let c = generateSudokuRow(r,num,sudoku1);
-            sudoku1[r][c]=num;
+            let c = generateSudokuRow(r,num,sudoku);
+            sudoku[r][c]=num;
         }   
     }
-    return sudoku1;
+    return sudoku;
 }
 function countEmptyCells(sudoku){
     let counter = 0;
@@ -110,7 +121,7 @@ function generateSolvableSudoku() {
 }
 function cleanDisplay(){
     let cells = document.querySelectorAll(".cell");
-    for (let i=0; i<81; i++){
+    for (let i=0; i<cells.length; i++){
         cells[i].innerHTML = "";
         cells[i].setAttribute("original",true);
     }
@@ -125,14 +136,72 @@ function generatePuzzle(level){
         if (sudoku[r][c] != 0){
             sudoku[r][c] = 0;
             counter += 1;
-            id = (r+1).toString() + (c+1).toString();
-            document.getElementById(id).setAttribute("original",false);
+            let id = (r+1).toString() + (c+1).toString();
+            let cell = document.getElementById(id);
+            cell.setAttribute("original",false);
         }else{
             continue;
         }
     }
+    updateGame();
     return sudoku;
 }
+function enterNumber(cellId,num){
+    let r=cellId[0]-1;
+    let c=cellId[1]-1;
+    displayedSudoku[r][c]=num;
+    displaySudoku(displayedSudoku);
+}
+function updateGame() {
+    freeCells = Array.from(document.querySelectorAll("[original='false']"));
 
-displaySudoku(generatePuzzle(45))
+    /* update cells event handlers */
+    for (let i=0;i<freeCells.length;i++){
+        let btn = freeCells[i];
+        btn.onclick = function(){
+            selectedCell = document.activeElement;
+        }
+    }
+}
+function checkSol(){
+    let row;
+    let col;
+    let sqr;
+    let num;
+    for(let r=0; r<9; r++){
+        for(let c=0; c<9; c++){
+            num = displayedSudoku[r][c];
+            row = checkRows(r,num,displayedSudoku);
+            col = checkCols(c,num,displayedSudoku);
+            sqr = checkSqr(r,c,num,displayedSudoku);
+        }
+    }
+    if ((row === 0) || (col === 0) || (sqr === 0)){
+        alert(false)
+    }else {
+        alert(true)
+    }
+}
+function eventHandlers(){
+    for (let i=0; i<10; i++){
+    let num = buttons[i];
+    num.onclick = function(){
+        let number = Number(num.id);
+        let cellId = selectedCell.id;
+        console.log(cellId)
+        enterNumber(cellId,number);
+        displaySudoku(displayedSudoku);
+    }
+}
+let check = document.getElementById("check");
+let easy = document.getElementById("easy");
+let medium = document.getElementById("medium");
+let hard = document.getElementById("hard");
+
+check.onclick = checkSol;
+easy.onclick = function(){displaySudoku(generatePuzzle(35))};
+medium.onclick = function(){displaySudoku(generatePuzzle(45))};
+hard.onclick = function(){displaySudoku(generatePuzzle(60))};
+}
+
 
