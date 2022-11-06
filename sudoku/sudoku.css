@@ -5,7 +5,7 @@
 body {
     max-height: 100vh;
     margin: 0;
-    background-color: #bab2b5;
+    background-color:#bab2b5;
     font-family: 'Philosopher', sans-serif;
 }
 
@@ -13,6 +13,7 @@ h1 {
     margin: 3rem 6%;
     text-align: left;
     font-size: 3rem;
+    color: #231f20;
 }
 
 .newpuzzle {
@@ -25,13 +26,33 @@ h1 {
 }
 h4 {
     font-size: 1.5rem;
+    color: #ba5c12;
 }
 button {
+    border:none;
     margin-top: 0.5rem;
     font-family:'Philosopher', sans-serif;
     height: 2.5rem;
     width: 6rem;
-    background-color: #eee2dc;
+    background-color: #231f20;
+    color:#eee2dc;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: #ba5c12;
+}
+button:active{
+    background-color: #e26d13;
+}
+#check {
+    background-color: #ba5c12;
+    margin-bottom: 2rem;
+}
+#check:hover{
+    background-color: #e26d13;
+}
+#check:active{
+    background-color: #ba5c12;
 }
 .game {
     /*border:2px solid blue;*/
@@ -59,7 +80,7 @@ button {
     margin-top: -16rem;
     display: inline-block;
     width: fit-content;
-    background-color: black;
+    background-color:  #231f20;;
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: center;
@@ -75,7 +96,7 @@ button {
     justify-content: center;
 }
 .square1 {
-    background-color: #edc7b7;
+    background-color: /*#edc7b7*/ #c4b2bc;
 }
 
 .square2{
@@ -90,26 +111,30 @@ button {
     margin: 0;
     width: 3rem;
     height: 3rem;
-    border: 1px solid black;
+    border: 1px solid  #231f20;
     font-size: 2.2rem;
     text-align: center;
     font-weight: bolder;
     cursor: default;
 }
 .cell[original="false"]{
-    color: rgb(82, 78, 78);
+    color: #ba5c12;
 }
 .cell[original="false"]:hover {
     background-color: #bab2b5;
     cursor:text;
-    color:gray;
 }
 .cell[original="false"]:focus{
-    background-color: gray;
+    background-color:#231f20;
 }
-
-.selected{
-    background-color: gray;
+.footer{
+    text-align: center;
+    background-color: #231f2028;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color:#231f20;
 }
 @media screen and (max-width: 1000px) {
     body{
@@ -119,7 +144,7 @@ button {
     }
     h1 {
         text-align: center;
-        margin-top: 1rem;
+        margin-top: 5rem;
     }
     .newpuzzle{ /**/
         align-self: center;
@@ -153,7 +178,7 @@ button {
         margin: 0;
         display: inline-block;
         width:fit-content;
-        background-color: black;
+        background-color:  #231f20;
         display: grid;
         grid-template-columns: auto auto auto;
         justify-content: center;
@@ -163,7 +188,7 @@ button {
 
     .numbers{ /**/
         width: 100vw;
-        margin-top: 0.5rem;
+        margin-top: 1rem;
         align-self: center;
         display: grid;
         grid-template-columns: auto auto auto;
@@ -173,22 +198,25 @@ button {
     
     }
     .number, .btn { /**/ 
-        width: 5rem;
+        width: 6rem;
         height: 2rem;
     }
     
     #check {
-        margin-top: 0.2rem;
+        margin-top: 1rem;
         align-self: center;
-        width: 15.4rem;
+        width: 18.4rem;
         height: 2rem;
+        margin-bottom: 2rem;
     }
     .cell { /**/
         width: 2rem;
         height: 2rem;
-        border: 0.5px solid black;
         font-size: 1.5rem;
         text-align: center;
         cursor: default;
+    }
+    .footer{
+        position: relative;
     }
 }
