@@ -53,6 +53,7 @@ button:active{
 }
 #check:active{
     background-color: #ba5c12;
+    color: #eee2dc;
 }
 .game {
     /*border:2px solid blue;*/
@@ -121,11 +122,8 @@ button:active{
     color: #ba5c12;
 }
 .cell[original="false"]:hover {
-    background-color: #bab2b5;
+    background-color: #ba5c12;
     cursor:text;
-}
-.cell[original="false"]:focus{
-    background-color:#231f20;
 }
 .footer{
     text-align: center;

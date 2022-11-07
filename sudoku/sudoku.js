@@ -1,8 +1,5 @@
-let freeCells;
-let selectedCell;
-let buttons = Array.from(document.querySelectorAll(".number"));
-eventHandlers();
 let displayedSudoku = generatePuzzle(45);
+let selected = 0; let style;
 displaySudoku(displayedSudoku);
 
 function checkRows(r,n,sudoku){
@@ -143,65 +140,80 @@ function generatePuzzle(level){
             continue;
         }
     }
-    updateGame();
     return sudoku;
 }
-function enterNumber(cellId,num){
-    let r=cellId[0]-1;
-    let c=cellId[1]-1;
-    displayedSudoku[r][c]=num;
-    displaySudoku(displayedSudoku);
-}
-function updateGame() {
-    freeCells = Array.from(document.querySelectorAll("[original='false']"));
 
-    /* update cells event handlers */
-    for (let i=0;i<freeCells.length;i++){
-        let btn = freeCells[i];
-        btn.onclick = function(){
-            selectedCell = document.activeElement;
-        }
-    }
-}
-function checkSol(){
-    let row;
-    let col;
-    let sqr;
-    let num;
-    for(let r=0; r<9; r++){
-        for(let c=0; c<9; c++){
-            num = displayedSudoku[r][c];
-            row = checkRows(r,num,displayedSudoku);
-            col = checkCols(c,num,displayedSudoku);
-            sqr = checkSqr(r,c,num,displayedSudoku);
-        }
-    }
-    if ((row === 0) || (col === 0) || (sqr === 0)){
-        alert(false)
-    }else {
-        alert(true)
-    }
-}
-function eventHandlers(){
-    for (let i=0; i<10; i++){
-    let num = buttons[i];
-    num.onclick = function(){
-        let number = Number(num.id);
-        let cellId = selectedCell.id;
-        console.log(cellId)
-        enterNumber(cellId,number);
-        displaySudoku(displayedSudoku);
-    }
-}
-let check = document.getElementById("check");
 let easy = document.getElementById("easy");
 let medium = document.getElementById("medium");
 let hard = document.getElementById("hard");
+let solCheck = document.getElementById("check")
+let cells = Array.from(document.querySelectorAll(".cell"));
+easy.onclick = function(){ displaySudoku(generatePuzzle(35))};
+medium.onclick = function(){ displaySudoku(generatePuzzle(45))};
+hard.onclick = function(){ displaySudoku(generatePuzzle(55))};
+solCheck.onclick = checkSol;
 
-check.onclick = checkSol;
-easy.onclick = function(){displaySudoku(generatePuzzle(35))};
-medium.onclick = function(){displaySudoku(generatePuzzle(45))};
-hard.onclick = function(){displaySudoku(generatePuzzle(60))};
+for (let i=0; i<cells.length; i++){
+    let cell = cells[i];
+    cell.onclick = function(){
+        if(cell.getAttribute("original")==="false"){
+            if(selected === 0){
+                selected = cell;
+                style = selected.style.backgroundColor;
+            }else {
+                selected.style.backgroundColor = style;
+                selected = cell;
+            }
+            cell.style.backgroundColor = "#231f20";
+        }
+    }
 }
 
+for (let i=0; i<10; i++){
+    let btn = document.getElementById(i);
+    btn.onclick = function(){
+        let r = selected.id[0]-1;
+        let c = selected.id[1]-1;
+        displayedSudoku[r][c] = i;
+        displaySudoku(displayedSudoku);
+    }
+}
 
+function checkSol(){
+    for (let r=0; r<9; r++){
+        let n=0;
+        for(let c=0; c<9; c++){
+            n+=displayedSudoku[r][c];
+            }
+        if (n!=45){
+            console.log(n, "col")
+            alert("There is a mistake I'm afraid :(");
+            return;
+        }
+    }
+    for (let c=0; c<9; c++){
+        let n=0;
+        for(let r=0; r<9; r++){
+            n+=displayedSudoku[r][c];
+            }
+        if (n!=45){
+            console.log("row")
+            alert("There is a mistake I'm afraid :(");
+            return;
+        }
+    }
+    let sum = 0;
+    for (let r=0; r<3; r+=3){
+        for(let c=0; c<3; c+=3){
+            sum += displayedSudoku[r][c]+displayedSudoku[r+1][c]+displayedSudoku[r+2][c]
+                +displayedSudoku[r][c+1]+displayedSudoku[r][c+2]+displayedSudoku[r+1][c+1]
+                +displayedSudoku[r+1][c+2]+displayedSudoku[r+2][c+1]+displayedSudoku[r+2][c+2];
+            if (sum != 45){
+                console.log(sum, "box")
+                alert("There is a mistake I'm afraid:(");
+                return
+            }
+        }
+    }
+    alert("Congratulations!!! You've solved the puzzle correctly. :) ")
+}
