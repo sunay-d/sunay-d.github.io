@@ -19,8 +19,8 @@ nav {
   height: 55px;
   color:whitesmoke;
 }
-.fa-globe{
-  font-size: 1.5rem;
+nav svg{
+  font-size: 3rem;
 }
 nav h1{
   font-weight: 500;
@@ -48,7 +48,7 @@ section img {
   align-items: center;
   gap:0.3rem;
 }
-.fa-map-marker {
+.location svg {
   color: #F55A5A;
 }
 .location p {
@@ -67,17 +67,17 @@ section img {
   font-weight: 700;
   font-size: 1.8rem;
   color: #2B283A;
-  margin:-0.7rem 0;
+  margin-top:-0.7rem; 
 }
 .date {
   font-weight: 700;
   font-size: 0.9rem;
   color: #2B283A;
-  margin: 1rem 0;
+  margin-top: -0.5rem;
 }
 .description {
   font-weight: 400;
   font-size: 1rem;
   color: #2B283A;
-  margin: -0.5rem 0;
+  margin-top: -0.5rem;
 }
