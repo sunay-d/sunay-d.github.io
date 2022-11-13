@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+nav{
+    height: 55px;
+    background: #F55A5A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fa-globe{
+    color: white;
+    width: 24px;
+    height: 24px;
+    left: calc(50% - 24px/2 - 50px);
+    top: calc(50% - 24px/2 - 324px);
+}
+
+nav h1{
+    font-weight: 500;
+    font-size: 14.4608px;
+    line-height: 18px;
+    letter-spacing: -0.075em;
+    color: #FFFFFF;
+}
+
+section {
+    margin-top:50px;
+    margin-left:40px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.photo {
+    width: 125px;
+    height: 168px;
+    left: 40px;
+    top: 100px;
+    border-radius: 5px;
+}
+
+.info {
+    margin-left:19px;
+    
+}
+.fa-map-marker{
+    width: 7px;
+    height: 9.55px;
+    left: 184px;
+    top: 120px;
+    background: #F55A5A;
+}
