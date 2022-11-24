@@ -19,25 +19,26 @@ body{
     background-color: #181818;
     font-family: Consolas;
 }
-.content{
-    margin: 0 10rem;
+#home{
+    max-width: 1080px; 
+    margin: 0 auto; 
     padding: 0;
     background-color: #181818;
 }
 .navbar{
     background-color: #181818;
-    position: fixed;
+    position:sticky;
+    width: 100%;
     top: 0;
-    left:10rem;
-    right:10rem;
-    width:auto;
+    margin:0;
+    padding:0;
 }
 .nav-elements{
-    padding: 0;
+    padding: 1rem;
     list-style: none;
     display: flex;
     justify-content: space-between;
-    align-items: left;
+    align-items: center;
 }
 .nav-elements li {
     padding-top: 1rem;
@@ -65,10 +66,9 @@ body{
 	  0 0 50px #72F005;
 }
 #header{
-    margin-top:7rem;
+    margin-top:2rem;
     display: flex;
     justify-content: space-between;
-    height: 100vh;
 }
 #header h1{
     font-family: Rubik;
@@ -125,7 +125,6 @@ body{
 }
 #about {
     margin-top: 3rem;
-    height: 100vh;
     display: grid;
     grid-template-areas: 
             "title title title"
