@@ -1,0 +1,1 @@
+Typing effect: https://github.com/mattboldt/typed.js/

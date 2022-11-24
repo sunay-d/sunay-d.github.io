@@ -1,0 +1,225 @@
+@font-face {
+    font-family: Consolas;
+    src: url("../fonts/Consolas-Font/CONSOLA.TTF");
+}
+@font-face {
+    font-family: Rubik;
+    src: url("../fonts/Rubik/Rubik-VariableFont_wght.ttf");
+}
+@font-face {
+    font-family: Glitch;
+    src: url("../fonts/Rubik_Glitch/RubikGlitch-Regular.ttf");
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    margin:0;
+    padding: 0;
+    background-color: #181818;
+    font-family: Consolas;
+}
+.content{
+    margin: 0 10rem;
+    padding: 0;
+    background-color: #181818;
+}
+.navbar{
+    background-color: #181818;
+    position: fixed;
+    top: 0;
+    left:10rem;
+    right:10rem;
+    width:auto;
+}
+.nav-elements{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+}
+.nav-elements li {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 0;
+    margin: 0;
+    text-decoration: none;
+}
+.nav-elements li a{
+    color: #c7c7c7;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+.nav-elements li a:hover{
+	color:#fff;
+	text-shadow:
+	  0 0 7px #fff,
+	  0 0 10px #fff,
+	  0 0 13px #fff,
+	  0 0 17px #72F005,
+	  0 0 21px #72F005,
+	  0 0 35px #72F005,
+	  0 0 45px #72F005,
+	  0 0 50px #72F005;
+}
+#header{
+    margin-top:7rem;
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+}
+#header h1{
+    font-family: Rubik;
+    font-size: 6rem;
+    color: #FAD805;
+    letter-spacing: 0.5rem;
+}
+#header h1:hover {
+	animation: blink 1s;
+}
+@keyframes blink {
+	0% {font-family: 'Rubik', sans-serif;}
+	10% {font-family: 'Glitch', cursive;}
+	10.01% {font-family: 'Rubik', sans-serif;}
+}
+#header h3{
+    font-family: Consolas;
+    font-size: 2rem;
+    margin-top: -3rem;
+    color: #c7c7c7;
+}
+.social{
+    font-size: 2rem;
+    display: grid;
+    grid-template-columns: 3rem 3rem;
+}
+.social a{
+    margin-right: 1rem;
+    color: #c7c7c7;
+}
+.social .fa:hover{
+    font-size: 2.5rem;
+}
+.ascii-art {
+    width:auto;
+    margin-top: 4rem;
+	/* color:#72F005;
+	background: -webkit-linear-gradient(#72F005 25%, #E38407 50%, #FAD805 75%);
+  	background-clip: text; 
+  	-webkit-text-fill-color: transparent;
+	font-size: 0.9rem;
+    margin-top: 4rem; */
+}
+/* .ascii-artist {
+	font-size: 0.5rem;
+} */
+#about h2, #projects h2, #contact h2{
+    grid-area: title;
+    font-size:3rem;
+    text-align: center;
+    margin-top:10rem;
+    color:#FAD805;
+    letter-spacing: 0.5rem;
+}
+#about {
+    margin-top: 3rem;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+            "title title title"
+            "nav par img"
+            "nav par img";
+    justify-content: space-between;
+}
+#about h2{
+    grid-area: title;
+}
+.small-nav {
+    grid-area: nav;
+    margin-top: -1rem;
+    margin-left: -3rem;
+    margin-right: 3rem;
+}
+.small-nav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+}
+.small-nav ul li{
+    color: #c7c7c7;
+    padding: 1rem;
+    color:#FAD805;
+}
+.small-nav ul li:hover{
+    cursor: pointer;
+	color:white;
+	text-shadow:
+	  0 0 7px white,
+	  0 0 10px white,
+	  0 0 13px white,
+	  0 0 17px #FAD805,
+	  0 0 21px #FAD805,
+	  0 0 35px #FAD805,
+	  0 0 45px #FAD805,
+	  0 0 50px #FAD805;
+}
+
+.mypic {
+    margin-top: 1rem;
+    grid-area: "img";
+    height: 20rem;
+    border-radius: 10px;
+}
+.about-content {
+    margin-right:2rem;
+    grid-area: "par";
+    color:whitesmoke;
+    letter-spacing: 0.1rem;
+}
+.aboutMeContent {
+    visibility: hidden;
+    font-size: 0;
+}
+.whoAmI{
+    visibility: visible;
+    font-size: 1rem;
+}
+
+#projects {
+    margin-top: 15rem;
+    height: 100vh;
+}
+
+.cards {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.card {
+    padding: 0;
+    width: 15rem;
+    background-color: #e384075d;
+}
+.card img{
+    margin: 1rem;
+    width:13rem;
+    align-self: center;
+    border-radius: 10px;
+}
+.card p{
+    font-size: 2rem;
+    text-align: center;
+    color:#72F005;
+    margin-top:0;
+}
+.card .sudoku-links a{
+    color:whitesmoke;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    border:2px solid #72F005;
+}
