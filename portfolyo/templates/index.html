@@ -1,62 +1,43 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Sunay Doğan</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a526ad2883.js" crossorigin="anonymous"></script>
-    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <link href="../css/style2.css" rel="stylesheet" type="text/css">
+    <title>Sunay Doğan</title>
 </head>
-
 <body>
-    <div id="home" class="content">
-        <nav id="navbar" class="navbar">
-            <ul class="nav-elements">
-                <li><a href="#header">home</a></li>
-                <li><a href="#about">about me</a></li>
+    <div id="container" class="container">
+        <nav class="navbar">
+            <ul>
+                <li><a href="#container">home</a></li>
+                <li><a href="#about">aboutMe</a></li>
                 <li><a href="#projects">projects</a></li>
                 <li><a href="#contact">contact</a></li>
             </ul>
         </nav>
-        <div id="header">
+        <header>
             <div class="title">
-                <h1>sunay <br> doğan</h1>
                 <div id="typed-string"><h3>web developer</h3></div>
                 <h3 class="typedText"><span id="typed"></span></h3>
+                <h1>sunay <br> doğan</h1>
                 <div class="social">
                     <a href="https://linkedin.com/in/sunay-dogan" target="blank"><i class="fa fa-linkedin-square"></i></a>
                     <a href="https://github.com/sunay-d" target="blank"><i class="fa fa-github"></i></a>
                 </div>
             </div>
-            <div class="ascii-art"><img src="../img/cover.jpg"></div>
-            <!-- <pre class="ascii-art">
-
-              \\XXXXXXXX//
-                XXXXXXXX
-               //XXXXXX\\                      OOOOOOOOOOOOOOOOOOOO
-              ////XXXX\\\\                     OOOOOOOOOOOOOOOOOOOO
-             //////XX\\\\\\     |||||||||||||||OOOOOOOOOOOOOOOVVVVVVVVVVVVV
-            ////////\\\\\\\\    |!!!|||||||||||OOOOOOOOOOOOOOOOVVVVVVVVVVV'
-           ////////  \\\\\\\\ .d88888b|||||||||OOOOOOOOOOOOOOOOOVVVVVVVVV'
-          ////////    \\\\\\\d888888888b||||||||||||            'VVVVVVV'
-          ///////      \\\\\\88888888888||||||||||||             'VVVVV'
-          //////        \\\\\Y888888888Y||||||||||||              'VVV'
-          /////          \\\\\\Y88888Y|||||||||||||| .             'V'
-          ////            \\\\\\|iii|||||||||||||||!:::.            '
-          ///              \\\\\\||||||||||||||||!:::::::.
-          //                \\\\\\\\           .:::::::::::.
-          /                  \\\\\\\\        .:::::::::::::::.
-                              \\\\\\\\     .:::::::::::::::::::.
-                               \\\\\\\\
-                                <span class="ascii-artist">Art by Bob Allison</span>
-            </pre> -->
-        </div>
-        
+            <div class="logo">
+                <div class="ascii-art"><img src="../img/cover.jpg"></div>
+            </div>
+        </header>
         <div id="about">
-            <h2>about me</h2>
+            <h2>aboutMe<hr></h2>
+            
             <div class="small-nav">
                 <ul>
-                    <li class="link">who am I</li>
+                    <li class="link">whoAmI</li>
                     <li class="link">education</li>
                     <li class="link">certificates</li>
                     <li class="link">skills</li>
@@ -68,7 +49,7 @@
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi temporibus hic dolor, eveniet laborum nemo maxime aliquam alias minima. Quod laudantium optio expedita amet sed aut error, libero blanditiis enim.</p>
                 </div>
                 <div class="aboutMeContent education">
-                    <p>deneme</p>
+                    <p>education</p>
                 </div>
                 <div class="aboutMeContent certificates">
                     <p>certificates</p>
@@ -79,24 +60,30 @@
             </span>
             <img class="mypic" src="../img/aboutme.jpg">
         </div>
-
         <div id="projects">
-            <h2>projects</h2>
-            <div class="cards">
-                <div class="card">
-                    <img src="../img/sudoku.png">
-                    <p>Sudoku</p>
-                    <div class="sudoku-links">
-                       <a href="https://sunay-d.github.io/sudoku/sudoku.html" target="blank">live site</a>
-                        <a href="https://github.com/sunay-d/sunay-d.github.io/tree/main/sudoku" target="blank">github</a>
-                    </div>
-                </div>
-            </div>
+                <h2>projects<hr></h2>
         </div>
         <div id="contact">
-            <h2>contact</h2>
+            <h2>contact<hr></h2>
+            <div class="grid-container">
+                <p>Hi! If you want to get in contact you can reach me via my social media accounts <a href="#">LinkedIn</a>, <a href="#">GitHub</a> <br> or  you can send an email to ssunaydogan@gmail.com <br> or you can leave me a message below. <br> I'm looking forward to hearing from you :) </p>
+
+                <form id="form" action="action_page.php">
+                    <label for="fname">E-mail</label>
+                    <input type="email" id="fname" name="email" placeholder="Your email address..">
+
+                    <label for="subject">Subject</label>
+                    <textarea id="subject" name="subject" placeholder="Please type your message here." style="height:200px"></textarea>
+                
+                    <input id="submit" type="submit" value="Submit">  
+                </form>
+                <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5146.140813672717!2d32.85498631811551!3d39.92094606309573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1str!2str!4v1669485562851!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
         </div>
     </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="../js/index.js"></script>
     <script>
@@ -104,8 +91,6 @@
         stringsElement : "#typed-string",
         typeSpeed:100,
         loop:false });
-    </script>
-        
-
+    </script>       
 </body>
 </html>
