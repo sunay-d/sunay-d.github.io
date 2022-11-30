@@ -147,11 +147,13 @@ let easy = document.getElementById("easy");
 let medium = document.getElementById("medium");
 let hard = document.getElementById("hard");
 let solCheck = document.getElementById("check")
+let clear = document.getElementById("clear")
 let cells = Array.from(document.querySelectorAll(".cell"));
 easy.onclick = function(){ displaySudoku(generatePuzzle(35))};
 medium.onclick = function(){ displaySudoku(generatePuzzle(45))};
 hard.onclick = function(){ displaySudoku(generatePuzzle(55))};
 solCheck.onclick = checkSol;
+clear.onclick = clearAll;
 
 for (let i=0; i<cells.length; i++){
     let cell = cells[i];
@@ -216,4 +218,16 @@ function checkSol(){
         }
     }
     alert("Congratulations!!! You've solved the puzzle correctly. :) ")
+}
+
+function clearAll(){
+    for (let i=0; i<cells.length; i++){
+        let cell = cells[i];
+        if(cell.getAttribute("original")==="false"){
+                cells[i].innerHTML = "";
+                let r = cell.id[0]-1;
+                let c = cell.id[1]-1;
+                displayedSudoku[r][c] = 0;
+        }   
+    }
 }

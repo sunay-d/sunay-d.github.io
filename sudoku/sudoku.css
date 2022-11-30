@@ -19,10 +19,9 @@ h1 {
 .newpuzzle {
     justify-self: auto;
     margin-left: 6%;
-    /*display: inline-block;*/
     width: fit-content;
     display: grid;
-    grid-template-areas: (header, btn, btn, btn); 
+    /* grid-template-areas: (header, btn, btn, btn);  */
 }
 h4 {
     font-size: 1.5rem;
@@ -56,7 +55,6 @@ button:active{
     color: #eee2dc;
 }
 .game {
-    /*border:2px solid blue;*/
     display: grid;
     grid-template-columns: auto auto;
     justify-content:center;
@@ -64,7 +62,6 @@ button:active{
 }
 .numbers {
     margin-top: -16rem;
-    /*border: 2px solid red;*/
     padding: 0;
     display: inline-block;
     display: grid;
@@ -97,7 +94,7 @@ button:active{
     justify-content: center;
 }
 .square1 {
-    background-color: /*#edc7b7*/ #c4b2bc;
+    background-color: #c4b2bc;
 }
 
 .square2{
@@ -123,7 +120,7 @@ button:active{
 }
 .cell[original="false"]:hover {
     background-color: #ba5c12;
-    cursor:text;
+    cursor:pointer;
 }
 .footer{
     text-align: center;
@@ -165,13 +162,13 @@ button:active{
         margin-right: 0.1rem;
         margin-top: -1.5rem;
     }
-    .game { /**/
+    .game { 
         align-self: center;
         display: flex;
         flex-direction: column;
         justify-content:center;
     }
-    .board { /**/
+    .board { 
         align-self: center;
         margin: 0;
         display: inline-block;
@@ -184,7 +181,7 @@ button:active{
         row-gap: 0.1rem;
     }
 
-    .numbers{ /**/
+    .numbers{ 
         width: 100vw;
         margin-top: 1rem;
         align-self: center;
@@ -195,19 +192,32 @@ button:active{
         row-gap: 0.2rem;
     
     }
-    .number, .btn { /**/ 
+    .number, .btn {  
         width: 6rem;
         height: 2rem;
     }
-    
+    .bottom-btns {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: center;
+        align-items:center;
+        gap: .4rem;
+    }
     #check {
         margin-top: 1rem;
         align-self: center;
-        width: 18.4rem;
-        height: 2rem;
+        width: 9rem;
+        height: 2.5rem;
         margin-bottom: 2rem;
     }
-    .cell { /**/
+    #clear {
+        margin-top: 1rem;
+        align-self: center;
+        width: 9rem;
+        height: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    .cell { 
         width: 2rem;
         height: 2rem;
         font-size: 1.5rem;
