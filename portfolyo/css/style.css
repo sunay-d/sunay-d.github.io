@@ -224,6 +224,12 @@ header {
 .card{
     position: relative;
 }
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: left;
+}
 .card h4{
     color: #E38407;
     font-size: 1.4rem;
