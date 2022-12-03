@@ -26,6 +26,8 @@
                 <div class="social">
                     <a href="https://linkedin.com/in/sunay-dogan" target="blank"><i class="fa fa-linkedin-square"></i></a>
                     <a href="https://github.com/sunay-d" target="blank"><i class="fa fa-github"></i></a>
+                    <a href="https://twitter.com/nagodyanus" target="blank"><i class="fa fa-twitter"></i></a>
+                    <a href="https://open.spotify.com/user/f7wkhl9pmo1uvrm2rl6vmfv43?si=c07bcef7bda54539" target="blank"><i class="fa fa-spotify"></i></a>
                 </div>
             </div>
             <div class="logo">
@@ -34,43 +36,72 @@
         </header>
         <div id="about">
             <h2>aboutMe<hr></h2>
-            
             <div class="small-nav">
                 <ul>
                     <li class="link">whoAmI</li>
+                    <li class="link">skills</li>
                     <li class="link">education</li>
                     <li class="link">certificates</li>
-                    <li class="link">skills</li>
                 </ul>
             </div>
             <span class="about-content">
                 <div class="aboutMeContent whoAmI">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi temporibus hic dolor, eveniet laborum nemo maxime aliquam alias minima. Quod laudantium optio expedita amet sed aut error, libero blanditiis enim.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi temporibus hic dolor, eveniet laborum nemo maxime aliquam alias minima. Quod laudantium optio expedita amet sed aut error, libero blanditiis enim.</p>
-                </div>
-                <div class="aboutMeContent education">
-                    <p>education</p>
-                </div>
-                <div class="aboutMeContent certificates">
-                    <p>certificates</p>
+                    <p><span class="highlight">Hello and welcome to my web page!</span> I'm Sunay Doğan, a self-taught junior web developer. </p>
                 </div>
                 <div class="aboutMeContent skills">
                     <p>skills</p>
+                </div>
+                <div class="aboutMeContent education">
+                    <p>I have a Bachelor's degree in <span class="highlight">Economics</span> and <span class="highlight">Mathematics</span> from Middle East Technical University (METU) in Turkey. I am currently pursuing my master's degree in Mathematics.  </p>
+                </div>
+                <div class="aboutMeContent certificates">
+                    <p>certificates</p>
                 </div>
             </span>
             <img class="mypic" src="../img/aboutme.jpg">
         </div>
         <div id="projects">
-                <h2>projects<hr></h2>
+            <h2>projects<hr></h2>
+            <div class="grid-container"> 
+                <div class="card">
+                    <img src="../img/sudoku.png" alt="soon" style="width:100%">
+                    <div class="card-container">
+                        <h4><b>Sudoku</b></h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quo laudantium iste dicta, harum, magni nam, cum at omnis id facere similique dolor! Qui eveniet error illo unde quam rem.</p>
+                        <div class="links">
+                            <a href="https://sunay-d.github.io/sudoku/sudoku" target="blank">Live</a>
+                            <a href="https://github.com/sunay-d/sunay-d.github.io/tree/main/sudoku" target="blank">Source Code</a>
+                        </div>
+                    </div>
+                </div> 
+                <div class="card">
+                    <img src="../img/password.jpg" alt="random_password_generator" style="width:100%">
+                    <div class="card-container">
+                        <h4>Random Password Generator</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quo laudantium iste dicta, harum, magni nam, cum at omnis id facere similique dolor! Qui eveniet error illo unde quam rem.</p>
+                        <div class="links">
+                            <a>Live</a>
+                            <a>Source Code</a>
+                        </div>
+                    </div>
+                </div> 
+                <div class="card">
+                    <img src="../img/soon.jpg" alt="sudoku" style="width:100%">
+                    <div class="card-container">
+                    <h4><b>Coming Soon...</b></h4>
+                    <p></p>
+                    </div>
+                </div> 
+            </div>
         </div>
         <div id="contact">
             <h2>contact<hr></h2>
             <div class="grid-container">
-                <p>Hi! If you want to get in contact you can reach me via my social media accounts <a href="#">LinkedIn</a>, <a href="#">GitHub</a> <br> or  you can send an email to ssunaydogan@gmail.com <br> or you can leave me a message below. <br> I'm looking forward to hearing from you :) </p>
+                <p>Hi! If you want to get in contact you can reach me via my social media accounts <a href="#">LinkedIn</a>, <a href="#">GitHub</a> <br> or  you can send an email to <span class="highlight">sunay.dogan@pm.me</span> <br> or you can leave me a message below. <br> I'm looking forward to hearing from you :) </p>
 
                 <form id="form" action="action_page.php">
                     <label for="fname">E-mail</label>
-                    <input type="email" id="fname" name="email" placeholder="Your email address..">
+                    <input type="email" id="fname" name="email" placeholder=" Your email address..">
 
                     <label for="subject">Subject</label>
                     <textarea id="subject" name="subject" placeholder="Please type your message here." style="height:200px"></textarea>
