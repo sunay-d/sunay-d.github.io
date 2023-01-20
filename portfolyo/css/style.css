@@ -1,0 +1,314 @@
+@font-face {
+    font-family: Consolas;
+    src: url("../fonts/Consolas-Font/CONSOLA.TTF");
+}
+@font-face {
+    font-family: Rubik;
+    src: url("../fonts/Rubik/Rubik-VariableFont_wght.ttf");
+}
+@font-face {
+    font-family: Glitch;
+    src: url("../fonts/Rubik_Glitch/RubikGlitch-Regular.ttf");
+}
+*{
+    box-sizing: border-box;
+}
+body {
+    margin: 0 auto;
+    padding: 0;
+    background-color: #181818;
+    font-family: Consolas;
+    max-width: 1500px;
+}
+.container {
+    position: relative;
+    margin: 0 10%;
+    padding: 0;
+}
+.navbar{
+    background-color: #181818;
+    position:sticky;
+    z-index: 10;
+    width: 100%;
+    top: 0;
+    margin:0;
+    padding:0;
+}
+.navbar ul {
+    padding: 1rem 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar ul li a{
+    padding: 1rem 0;
+    margin: 0;
+    text-decoration: none;
+    color: #c7c7c7;
+}
+.navbar ul li a:hover{
+	color:#fff;
+	text-shadow:
+	  0 0 7px #fff,
+	  0 0 10px #fff,
+	  0 0 13px #fff,
+	  0 0 17px #72F005,
+	  0 0 21px #72F005,
+	  0 0 35px #72F005,
+	  0 0 45px #72F005,
+	  0 0 50px #72F005;
+}
+header {
+    display: grid;
+    grid-template-areas: "title logo";
+    grid-template-columns: 50% 50%;
+}
+.title {
+    grid-area: title;
+    display: grid;
+    grid-template-areas: "dev name" "dev i";
+    grid-template-columns: 10% 90%;
+    grid-template-rows: 90% 10%;
+    gap:0;
+}
+.title h3{
+    writing-mode:vertical-rl;
+    transform: rotatez(180deg);
+    color:#E38407;
+    font-size: 2rem;
+    grid-area: dev;
+    align-self: left;
+    margin: 0;
+}
+.title h1{
+    text-align:start;
+    margin: 0;
+    padding-top: 7rem;
+    grid-area: name;
+    align-self: left;
+    font-family: Rubik;
+    font-size: 6rem;
+    color: #FAD805;
+    letter-spacing: 0.5rem;
+}
+.title h1:hover {
+	animation: blink 1s;
+}
+@keyframes blink {
+	0% {font-family: 'Rubik', sans-serif;}
+	10% {font-family: 'Glitch', cursive;}
+	10.01% {font-family: 'Rubik', sans-serif;}
+}
+.social{
+    padding-left: .5rem;
+    grid-area: i;
+    font-size: 2rem;
+    display: grid;
+    grid-template-columns: 3rem 3rem 3rem 3rem 3rem;
+}
+.social a {
+    color: #c7c7c7;
+} 
+.social .fa:hover{
+    font-size: 2.5rem;
+}
+.logo{
+    width: 100%;
+    height: 20rem;
+    margin-top: 4rem;
+}
+.ascii-art {
+    grid-area: logo;
+    margin: auto auto;
+    margin-top: 2rem;
+    width:auto;
+    /* background-image: linear-gradient(#72F005 25%, #E38407 50%, #FAD805 75%);
+    background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    font-size: 1rem; */
+}
+#about h2, #projects h2, #contact h2{
+    grid-area: title;
+    font-size:3rem;
+    text-align: right;
+    margin-top:10rem;
+    margin-bottom: 3rem;
+    color:#FAD805;
+    letter-spacing: 0.5rem;
+}
+#about {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-areas: 
+            "title title title"
+            "nav par img"
+            "nav par img";
+    justify-content: space-between;
+}
+#about h2{
+    grid-area: title;
+}
+.small-nav {
+    grid-area: nav;
+    margin-top: -1rem;
+    margin-left: -3rem;
+    margin-right: 3rem;
+}
+.small-nav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+}
+.small-nav ul li{
+    color: #c7c7c7;
+    padding: 1rem;
+    color:#FAD805;
+}
+.small-nav ul li:hover{
+    cursor: pointer;
+	color:white;
+	text-shadow:
+	  0 0 7px white,
+	  0 0 10px white,
+	  0 0 13px white,
+	  0 0 17px #FAD805,
+	  0 0 21px #FAD805,
+	  0 0 35px #FAD805,
+	  0 0 45px #FAD805,
+	  0 0 50px #FAD805;
+}
+
+.mypic {
+    margin-top: 1rem;
+    grid-area: "img";
+    height: 20rem;
+    border-radius: 10px;
+}
+.about-content {
+    margin-right:2rem;
+    grid-area: "par";
+    color:whitesmoke;
+    letter-spacing: 0.1rem;
+}
+.aboutMeContent {
+    visibility: hidden;
+    font-size: 0;
+}
+.whoAmI{
+    visibility: visible;
+    font-size: 1rem;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(104, 103, 103, 0.2);
+    transition: 0.3s;
+    /* width:30%; */
+}
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(114, 113, 113, 0.2);
+    cursor: pointer;
+}
+.card-container {
+    padding: 2px 16px;
+}
+#projects .grid-container{
+    display: grid;
+    justify-content: center;
+    align-items: top;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: max-content;
+    gap:2%;
+}
+.card{
+    position: relative;
+}
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: left;
+}
+.card h4{
+    color: #E38407;
+    font-size: 1.4rem;
+}
+.card p{
+    color: #c7c7c7;
+}
+.card .links{
+    width: 90%;
+    margin-top: 1rem;
+    position: absolute;
+    bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.card .links a{
+    border: 2px solid #E38407;
+    padding: .5rem 0;
+    text-align: center;
+    border-radius: 10px;
+    margin: 2% 0;
+    width: 46%;
+}
+.card .links a:hover{
+    border: 2px solid #E38407;
+    background-color: #e384075b;
+    padding: .5rem 0;
+    text-align: center;
+    border-radius: 10px;
+    margin: 2% 0;
+    width: 46%;
+}
+#contact .grid-container {
+    display: grid;
+    grid-template-areas: "par par" "form map";
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 10% 90%;
+}
+#contact p{
+    width: 90%;
+    margin-top: -1rem;
+    grid-area: par;
+    color: #c7c7c7;
+    line-height: 1.5rem;
+}
+#map{
+    align-self: end;
+    grid-area: map;
+    float: right;
+    margin-bottom: 2rem;
+    width:20rem;
+    height: 20rem;
+    border-radius: 10px;
+}
+form {
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.grid-container a{
+    text-decoration: none;
+    color:#72F005;
+}
+#fname, #subject {
+    width:90%;
+    font-family: Consolas;
+    background-color: #585757;
+    color: #c7c7c7;
+}
+form label {
+    color:#FAD805;
+    font-weight: bold;
+    margin: .5rem 0;
+}
+#submit {
+    margin: 1rem 0;
+}
+.highlight{
+    color:#72F005;
+}
