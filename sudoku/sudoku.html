@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap">
+        <link rel="stylesheet" href="sudoku.css">
+        <title>Sudoku</title>
+</head>
+<body>
+        <h1>SUDOKU</h1>
+        <div class="newpuzzle">
+                <h4>New Puzzle</h4>
+                <button class="btn" id="easy">Easy</button>
+                <button class="btn" id="medium">Medium</button>
+                <button class="btn" id="hard">Hard</button>    
+        </div>
+        <div class="game">
+                <div class="board">
+                        <div class="square1">
+                                <div  class="cell" id="11" original="true" tabindex="1"></div>
+                                <div  class="cell" id="12" original="true" tabindex="1"></div>
+                                <div  class="cell" id="13" original="true" tabindex="1"></div>
+                                <div  class="cell" id="21" original="true" tabindex="1"></div>
+                                <div  class="cell" id="22" original="true" tabindex="1"></div>
+                                <div  class="cell" id="23" original="true" tabindex="1"></div>
+                                <div  class="cell" id="31" original="true" tabindex="1"></div>
+                                <div  class="cell" id="32" original="true" tabindex="1"></div>
+                                <div  class="cell" id="33" original="true" tabindex="1"></div>
+                        </div>
+                        <div class="square2">
+                                <div  class="cell" id="14" original="true" tabindex="1"></div>
+                                <div  class="cell" id="15" original="true" tabindex="1"></div>
+                                <div  class="cell" id="16" original="true" tabindex="1"></div>
+                                <div  class="cell" id="24" original="true" tabindex="1"></div>
+                                <div  class="cell" id="25" original="true" tabindex="1"></div>
+                                <div  class="cell" id="26" original="true" tabindex="1"></div>
+                                <div  class="cell" id="34" original="true" tabindex="1"></div>
+                                <div  class="cell" id="35" original="true" tabindex="1"></div>
+                                <div  class="cell" id="36" original="true" tabindex="1"></div>    
+                        </div>
+                        <div class="square1">
+                                <div  class="cell" id="17" original="true" tabindex="1"></div>
+                                <div  class="cell" id="18" original="true" tabindex="1"></div>
+                                <div  class="cell" id="19" original="true" tabindex="1"></div>
+                                <div  class="cell" id="27" original="true" tabindex="1"></div>
+                                <div  class="cell" id="28" original="true" tabindex="1"></div>
+                                <div  class="cell" id="29" original="true" tabindex="1"></div>
+                                <div  class="cell" id="37" original="true" tabindex="1"></div>
+                                <div  class="cell" id="38" original="true" tabindex="1"></div>
+                                <div  class="cell" id="39" original="true" tabindex="1"></div>
+                        </div>
+                        <div class="square2">
+                                <div  class="cell" id="41" original="true" tabindex="1"></div>
+                                <div  class="cell" id="42" original="true" tabindex="1"></div>
+                                <div  class="cell" id="43" original="true" tabindex="1"></div>
+                                <div  class="cell" id="51" original="true" tabindex="1"></div>
+                                <div  class="cell" id="52" original="true" tabindex="1"></div>
+                                <div  class="cell" id="53" original="true" tabindex="1"></div>
+                                <div  class="cell" id="61" original="true" tabindex="1"></div>
+                                <div  class="cell" id="62" original="true" tabindex="1"></div>
+                                <div  class="cell" id="63" original="true" tabindex="1"></div>
+                        </div>
+                        <div class="square1">
+                                <div  class="cell" id="44" original="true" tabindex="1"></div>
+                                <div  class="cell" id="45" original="true" tabindex="1"></div>
+                                <div  class="cell" id="46" original="true" tabindex="1"></div>
+                                <div  class="cell" id="54" original="true" tabindex="1"></div>
+                                <div  class="cell" id="55" original="true" tabindex="1"></div>
+                                <div  class="cell" id="56" original="true" tabindex="1"></div>
+                                <div  class="cell" id="64" original="true" tabindex="1"></div>
+                                <div  class="cell" id="65" original="true" tabindex="1"></div>
+                                <div  class="cell" id="66" original="true" tabindex="1"></div>
+                        </div>
+                        <div class="square2">
+                                <div  class="cell" id="47" original="true" tabindex="1"></div>
+                                <div  class="cell" id="48" original="true" tabindex="1"></div>
+                                <div  class="cell" id="49" original="true" tabindex="1"></div>
+                                <div  class="cell" id="57" original="true" tabindex="1"></div>
+                                <div  class="cell" id="58" original="true" tabindex="1"></div>
+                                <div  class="cell" id="59" original="true" tabindex="1"></div>
+                                <div  class="cell" id="67" original="true" tabindex="1"></div>
+                                <div  class="cell" id="68" original="true" tabindex="1"></div>
+                                <div  class="cell" id="69" original="true" tabindex="1"></div>
+                        </div>
+                        <div class="square1">
+                                <div  class="cell" id="71" original="true" tabindex="1"></div>
+                                <div  class="cell" id="72" original="true" tabindex="1"></div>
+                                <div  class="cell" id="73" original="true" tabindex="1"></div>
+                                <div  class="cell" id="81" original="true" tabindex="1"></div>
+                                <div  class="cell" id="82" original="true" tabindex="1"></div>
+                                <div  class="cell" id="83" original="true" tabindex="1"></div>
+                                <div  class="cell" id="91" original="true" tabindex="1"></div>
+                                <div  class="cell" id="92" original="true" tabindex="1"></div>
+                                <div  class="cell" id="93" original="true" tabindex="1"></div>
+                        </div> 
+                        <div class="square2">
+                                <div  class="cell" id="74" original="true" tabindex="1"></div>
+                                <div  class="cell" id="75" original="true" tabindex="1"></div>
+                                <div  class="cell" id="76" original="true" tabindex="1"></div>
+                                <div  class="cell" id="84" original="true" tabindex="1"></div>
+                                <div  class="cell" id="85" original="true" tabindex="1"></div>
+                                <div  class="cell" id="86" original="true" tabindex="1"></div>
+                                <div  class="cell" id="94" original="true" tabindex="1"></div>
+                                <div  class="cell" id="95" original="true" tabindex="1"></div>
+                                <div  class="cell" id="96" original="true" tabindex="1"></div>
+                        </div>
+                        <div class="square1">
+                                <div  class="cell" id="77" original="true" tabindex="1"></div>
+                                <div  class="cell" id="78" original="true" tabindex="1"></div>
+                                <div  class="cell" id="79" original="true" tabindex="1"></div>
+                                <div  class="cell" id="87" original="true" tabindex="1"></div>
+                                <div  class="cell" id="88" original="true" tabindex="1"></div>
+                                <div  class="cell" id="89" original="true" tabindex="1"></div>
+                                <div  class="cell" id="97" original="true" tabindex="1"></div>
+                                <div  class="cell" id="98" original="true" tabindex="1"></div>
+                                <div  class="cell" id="99" original="true" tabindex="1"></div>
+                        </div>
+                </div>
+                <div class="numbers">
+                        <button id="1" class="number">1</button>
+                        <button id="2" class="number">2</button>
+                        <button id="3" class="number">3</button>
+                        <button id="4" class="number">4</button>
+                        <button id="5" class="number">5</button>
+                        <button id="6" class="number">6</button>
+                        <button id="7" class="number">7</button>
+                        <button id="8" class="number">8</button>
+                        <button id="9" class="number">9</button>
+                        <button id="0" class="number">←</button>
+                </div>
+                <div class="bottom-btns">
+                        <button id="check">Check Solution</button>
+                        <button id="clear">Clear All</button>
+                </div>
+
+        </div>
+        
+        <div class="footer">created by Sunay Dogan, 2022</div>
+    <script src="sudoku.js"></script>
+</body>
+</html>
