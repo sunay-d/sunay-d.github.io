@@ -1,0 +1,70 @@
+@font-face {
+    font-family: wizard;
+    src: url("./WizardWorldSimplified-Kxr7.ttf");
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("./three\ broomstick.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+nav ul li {
+    margin-right:3rem;
+    background-color: rgb(107, 1, 33);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+}
+nav ul li a{
+    color:whitesmoke;
+    font-family: wizard;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+nav ul li:hover {
+    background-color: rgb(161, 2, 50);
+}
+.container {
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 2rem;
+    margin-top: 150px;
+    background-color: rgba(107, 1, 33, 0.712);
+    display: inline-block;
+    border-radius: 10px;
+}
+h1,h4,p {
+    font-family: wizard;
+    color:whitesmoke;
+}
+h1 {
+    font-size: 3rem;
+}
+
+footer {
+    height: auto;
+    margin-top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.836);
+    color: white;
+    text-align: center;
+    font-size: .6rem;
+}
