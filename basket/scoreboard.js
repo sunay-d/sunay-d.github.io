@@ -10,14 +10,20 @@ let pause = 0
 let timerInterval
 
 function newGame() {
+    homeScore = 0
+    guestScore = 0
+    homeTimeOut = 0
+    guestTimeOut = 0
+    homeFoul = 0
+    guestFoul = 0
     duration = 600
     pause = 0
-    document.getElementById("home-score").textContent = 0
-    document.getElementById("guest-score").textContent = 0
-    document.getElementById("home-tout").textContent = 0
-    document.getElementById("guest-tout").textContent = 0
-    document.getElementById("home-tfoul").textContent = 0
-    document.getElementById("guest-tfoul").textContent = 0
+    document.getElementById("home-score").textContent = homeScore
+    document.getElementById("guest-score").textContent = guestScore
+    document.getElementById("home-tout").textContent = homeTimeOut
+    document.getElementById("guest-tout").textContent = guestTimeOut
+    document.getElementById("home-tfoul").textContent = homeFoul
+    document.getElementById("guest-tfoul").textContent = guestFoul
     document.getElementById("period").textContent = 1
     clearInterval(timerInterval)
     startTimer()
