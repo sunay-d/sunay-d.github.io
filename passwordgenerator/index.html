@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Serif&display=swap" rel="stylesheet"> 
+    <link href="css/styles.css" rel="stylesheet">
+    <title>Random Password Generator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Password <br>Generator</h1>
+
+        <input class="display" id="display" type="text" maxlength="25" value="" disabled></input>
+
+        <button id="generatebutton" onclick="generate()">Generate</button>
+
+        <h2>Customize your password</h2>
+        
+        <div class="textbox">
+            <div class="textbox-item">
+                <label class="textbox-label" for="length" >Password length:</label>
+                <input class="textbox-input" id="length" type="number" max="25" min="4" value="12"></input>
+            </div>
+            <div class="textbox-item">
+                <label class="textbox-label" for="chars">Special characters:</label>
+                <input class="textbox-input" id="chars" type="text" maxlength="10" placeholder="%!*@#$()^&" value="%!*@#$()^&"></input>
+            </div>
+        </div>
+        <p><b>Use</b></p>
+        <div class="checkbox">
+            <input class="checkbox-item" id= num type="checkbox" checked>Numbers</input>
+            <input class="checkbox-item" id= upper type="checkbox" checked>Upper Case</input>
+            <input class="checkbox-item" id=lower type="checkbox" checked>Lower Case</input> 
+        </div>
+    </div>
+    <footer>
+        <p>Sunay Doğan, 2022</p>
+    </footer>
+    <script src="js/function.js"></script>
+</body>
+</html>
