@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="game.css">
+    <title>Rock, Paper, Scissors, Lizard, Spock</title>
+</head>
+<body>
+    <h1 id="title">Rock, Paper, Scissors, Lizard, Spock</h1>
+    <div class="game-board">
+        <div class="player1">
+            <img class="profile-pic" src="./img/image1.jpg">
+            <h1>YOU</h1>
+            <h3>Score: </h3>
+        </div>
+        <div class="game">
+            <h4>Round: </h4>
+        </div> 
+        <div class="player2">
+            <img class="profile-pic" src="./img/image2.jpg">
+            <h1>ME</h1>
+            <h3>Score: </h3>
+        </div>
+    </div>
+    <div class="choose">
+        <h3>1, 2, 3, ... </h3>
+        <ul id="choices">
+            <li><button class="choice-btn"><img class="choice" src="./img/rock.png"></button></li>
+            <li><button class="choice-btn"><img class="choice" src="./img/paper.png"></button></li>
+            <li><button class="choice-btn"><img class="choice" src="./img/scissors.png"></button></li>
+            <li><button class="choice-btn"><img class="choice" src="./img/lizard.png"></button></li>
+            <li><button class="choice-btn"><img class="choice" src="./img/spock.png"></button></li>
+        </ul>
+    </div>
+</body>
+<script src="game.js"></script>
+</html>

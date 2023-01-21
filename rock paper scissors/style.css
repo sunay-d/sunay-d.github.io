@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+    height: 100vh;
+    background-image: url(./img/bg.jpg);
+    background-size: cover;
+    color: #070707;
+}
+
+h1 {
+    font-size: 3rem
+}
+.container {
+    margin: 0 auto;
+    padding-top: 7%;
+    background-color: #ece4b769;
+}
+.marker{
+    font-family: 'Permanent Marker', cursive;
+    color: #FF4000;
+}
+#hail {
+    color: #553555;
+}
+#name {
+    display: block;
+    margin: auto;
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+    border: 1px;
+    border-color: #ECE4B7;
+    border-style:inset;
+    border-radius: 10px;
+    height: 2rem;
+    width: 20rem;
+    background-color: #fff6c5;
+}
+
+#name:focus {
+    outline: none;
+}
+
+#begin{
+    display: inline-block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2B9720;
+    color: #fff9d6;
+    text-decoration: none;
+}
+
+#begin:hover{
+    background-color: #217717;
+    cursor: pointer;
+}
+
+#begin:active{
+    background-color: #1b6413;
+    cursor: pointer;
+}
+
+#rules{
+    display: block;
+    margin: 15px auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #070707;
+}
+
+#rules:hover{
+    cursor: pointer;
+    color:  #1b6413;
+}
+
+#video {
+    visibility: hidden;
+}
