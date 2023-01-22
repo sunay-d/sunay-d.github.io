@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Unit Converter</title>
+</head>
+<body id="body">
+    <div id="container" class="container">
+        <header>
+            <div class="input-area">
+                <h1 id="header-title">Metric/Imperial Unit Conversion</h1>
+                <input id="input" type="number">
+                <button id="convert" class="btn">Convert</button>
+            </div>
+            <button id="dark-light-mode"><img src="./day.png" alt="dark-light-mode-icon"></button>
+        </header>
+
+        <div class="calculation">
+            <div class="conversion-box">
+                <h2 class="title">Length (Meter/Feet)</h2>
+                <p id="length-area" class="result">0 meters = 0 feet | 0 feet = 0 meters</p>
+            </div>
+
+            <div class="conversion-box">
+                <h2 class="title">Volume (Liters/Gallons)</h2>
+                <p id="volume-area" class="result">0 liters = 0 gallons | 0 gallons = 0 liters</p>
+            </div>
+
+            <div class="conversion-box">
+                <h2 class="title">Mass (Kilograms/Pounds)</h2>
+                <p id="mass-area" class="result">0 kilos = 0 pounds | 0 pounds = 0 kilos</p>
+            </div>
+        </div>
+    </div>
+    <script src="calculation.js"></script>
+    <script src="darkmode.js"></script>
+</body>
+</html>
