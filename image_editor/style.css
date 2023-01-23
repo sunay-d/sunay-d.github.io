@@ -1,0 +1,84 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background-color: rgb(230, 220, 173);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+main {
+    height: 500px;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid gray;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: space-between;
+}
+
+#edited-image {
+    margin: 0;
+    border: 1px solid lightblue;
+    max-width: 500px;
+    max-height: 450px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#settings-section{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 90% 10%;
+    grid-template-areas: "settings rotate" "download download";
+}
+
+.settings-inputs, .rotate-flip-btns{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 75%;
+    margin: auto;
+}
+
+input[type=file]{
+    display: none;
+}
+
+.settings-inputs{
+    grid-area: settings;
+}
+
+.rotate-flip-btns {
+    grid-area: rotate;
+}
+
+.rotate-btn {
+    margin: 3px 2px 3px 0;
+}
+
+.rotate-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.fa-solid {
+    font-size: 1.5rem;
+}
+
+.up-download-btns{
+    grid-area: download;
+    justify-self: right;
+}
+
+.up-download-btn {
+    width: 100px;
+    height: 40px;
+    margin: 0 3px 0 .3rem;
+}
