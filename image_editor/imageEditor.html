@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a526ad2883.js" crossorigin="anonymous"></script>
     <title>Image Editor</title>
@@ -11,41 +14,44 @@
 <body>
     <div class="container">
         <header>
-            <h1>My Image Editor</h1>
+            <h1>Image Editor</h1>
         </header>
         <main>
             <section id="image-section">
                 <input id="image-input" type="file" accept="image/jpeg, image/png, image/jpg">
-                <output><img id="edited-image" src="./img/example.jpg" alt="uploaded image"></output>    
+                <img id="edited-image" src="./img/example.jpg" alt="uploaded image">  
             </section>
 
             <section id="settings-section">
-                <div class="settings-inputs">
-                    <label id="brightness-label" for="brightness">Brightness | 100%</label>
-                    <input type="range" id="brightness" name="brightness" min="0" max="200">
-                    <label id="saturation-label" for="saturation">Saturation | 100%</label>
-                    <input type="range" id="saturation" name="saturation" min="0" max="200">
-                    <label id="grayscale-label" for="grayscale">Grayscale | 0%</label>
-                    <input type="range" id="grayscale" name="grayscale" min="0" max="100">
-                    <label id="inversion-label" for="inversion">Inversion | 0%</label>
-                    <input type="range" id="inversion" name="inversion" min="0" max="100">
+                <div class="settings-inputs" id="settings-inputs">
+                    <label class="settings-label" id="brightness-label" for="brightness">Brightness | 100%</label>
+                    <input class="settings-input" type="range" id="brightness" name="brightness" min="0" max="200">
+                    <label class="settings-label" id="saturation-label" for="saturation">Saturation | 100%</label>
+                    <input class="settings-input" type="range" id="saturation" name="saturation" min="0" max="200">
+                    <label class="settings-label" id="grayscale-label" for="grayscale">Grayscale | 0%</label>
+                    <input class="settings-input" type="range" id="grayscale" name="grayscale" min="0" max="100">
+                    <label class="settings-label" id="inversion-label" for="inversion">Inversion | 0%</label>
+                    <input class="settings-input" type="range" id="inversion" name="inversion" min="0" max="100">
                 </div>
 
-                <div class="rotate-flip-btns">
+                <div class="rotate-flip-btns" id="rotate-flip-btns">
                     <button id="rotate-left" class="rotate-btn"><i class="rotate-icon fa-solid fa-rotate-left"></i></button>
                     <button id="rotate-right" class="rotate-btn"><i class="rotate-icon fa-solid fa-rotate-right"></i></button>
                     <button id="flip-horizontal" class="rotate-btn"><img class="rotate-icon" src="./icons/bx-reflect-horizontal.svg"></button>
                     <button id="flip-vertical" class="rotate-btn"><img class="rotate-icon" src="./icons/bx-reflect-vertical.svg"></button>  
                 </div>
 
-                <div class="up-download-btns">
+                <div class="up-download-btns" id="up-download-btns">
                     <button id="upload" class="up-download-btn">Upload</button>
-                    <button id="reset" class="up-download-btn">Reset Changes</button>
-                    <button id="download" class="up-download-btn">Download</button>
+                    <button id="reset" class="up-download-btn">Reset</button>
+                    <button id="download" class="up-download-btn">Save</button>
                 </div>
             </section>
         </main>
     </div>
-    <script src="index.js"></script>
+    <footer>
+        Created by Sunay Doğan - 2023
+    </footer>
 </body>
+    <script src="index.js"></script>
 </html>

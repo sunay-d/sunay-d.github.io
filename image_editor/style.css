@@ -4,7 +4,10 @@
 
 body{
     margin: 0;
-    background-color: rgb(230, 220, 173);
+    background-color: #202020;
+    font-family: 'Lato', sans-serif;
+    min-height: 100vh;
+    padding-bottom: 0;
 }
 
 .container {
@@ -12,10 +15,15 @@ body{
     margin: 0 auto;
 }
 
+header {
+    color: whitesmoke;
+
+}
 main {
     height: 500px;
-    background-color: white;
+    background-color: #2f2f2f;
     padding: 20px;
+    margin-bottom: 2rem;
     border: 1px solid gray;
     display: grid;
     grid-template-columns: 50% 50%;
@@ -24,7 +32,6 @@ main {
 
 #edited-image {
     margin: 0;
-    border: 1px solid lightblue;
     max-width: 500px;
     max-height: 450px;
     width: 100%;
@@ -37,6 +44,7 @@ main {
     grid-template-columns: 80% 20%;
     grid-template-rows: 90% 10%;
     grid-template-areas: "settings rotate" "download download";
+    color: whitesmoke;
 }
 
 .settings-inputs, .rotate-flip-btns{
@@ -52,15 +60,29 @@ input[type=file]{
 }
 
 .settings-inputs{
-    grid-area: settings;
+    grid-area: "settings";
+}
+
+.settings-input {
+    margin-bottom: 1rem;
 }
 
 .rotate-flip-btns {
-    grid-area: rotate;
+    grid-area: "rotate";
+}
+
+.rotate-btn:hover{
+    cursor: pointer;
+    background-color: #202020;
 }
 
 .rotate-btn {
-    margin: 3px 2px 3px 0;
+    height: 3rem;
+    width: 4rem;
+    margin: 0.5rem 0 0.5rem 0;
+    background-color: transparent;
+    border: none;
+    color: whitesmoke;
 }
 
 .rotate-icon {
@@ -73,12 +95,93 @@ input[type=file]{
 }
 
 .up-download-btns{
-    grid-area: download;
+    grid-area: "download";
     justify-self: right;
+    flex-wrap: nowrap;
 }
 
 .up-download-btn {
-    width: 100px;
-    height: 40px;
+    
+    width: 6.25rem;
+    height: 2.5rem;
     margin: 0 3px 0 .3rem;
+    background-color: #202020;
+    color: whitesmoke;
+    font-family: 'Lato', sans-serif;
+    border: none;
 }
+
+.up-download-btn:hover {
+    cursor: pointer;
+    background-color: #1a1919;
+}
+
+.up-download-btn:active {
+    cursor: pointer;
+    background-color: #141414;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 1.5rem;
+    background-color: #2f2f2f;
+    color: white;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1000px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        height: 1000px;
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        margin: auto 2%;
+        width: max-content;
+    }
+    header h1 {
+        margin-left: 2%;
+    }
+    #settings-section {
+        margin-top: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    #rotate-flip-btns{
+        order: 1;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 2rem;
+    }
+
+    #settings-inputs{
+        order: 2;
+    }
+
+    #up-download-btns{
+        order: 3;
+    }
+
+    .up-download-btn{
+        background-color: #2f2f2f;
+        margin-top: 2rem;
+        margin-bottom: 5rem;
+        width: 5.2rem;
+        height: 2.5rem;
+    }
+
+    footer{
+        position: static;
+        float: bottom;
+        margin-top: 450px;
+    }
+
+  }

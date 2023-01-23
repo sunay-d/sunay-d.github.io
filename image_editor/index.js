@@ -23,6 +23,10 @@ const inversionLabel = document.getElementById("inversion-label")
 let rotation = 0
 let scaleX = 1
 let scaleY = 1
+let brightness = 100
+let saturation = 100
+let grayscale = 0
+let inversion = 0
 
 uploadBtn.addEventListener("click", function() {
     imageInput.click()
@@ -39,49 +43,56 @@ imageInput.onchange = () => {
 
 rotateLeftBtn.addEventListener("click", function(){
     rotation -= 90
-    editedImage.style.transform = `rotate(${rotation}deg)`
+    editImage()
 })
 
 rotateRightBtn.addEventListener("click", function(){
     rotation += 90
-    editedImage.style.transform = `rotate(${rotation}deg)`
+    editImage()
 })
 
 flipHorizontalBtn.addEventListener("click", function(){
     scaleY= scaleY*(-1)
-    editedImage.style.transform = `scaleY(${scaleY})`
+    editImage()
 })
 
 flipVerticalBtn.addEventListener("click", function(){
     scaleX = scaleX*(-1)
-    editedImage.style.transform = `scaleX(${scaleX})`
+    editImage()
 })
 
 brightnessBtn.addEventListener("input", function(){
-    const value = brightnessBtn.value
-    editedImage.style.filter = `brightness(${value}%)`
-    brightnessLabel.textContent = `Brightness | ${value}%`
+    brightness = brightnessBtn.value
+    editImage()
+    brightnessLabel.textContent = `Brightness | ${brightness}%`
 })
 
 saturationBtn.addEventListener("input", function(){
-    const value = saturationBtn.value
-    editedImage.style.filter = `saturate(${value}%)`
-    saturationLabel.textContent = `Saturation | ${value}%`
+    saturation = saturationBtn.value
+    editImage()
+    saturationLabel.textContent = `Saturation | ${saturation}%`
 })
 
 grayscaleBtn.addEventListener("input", function(){
-    const value = grayscaleBtn.value
-    editedImage.style.filter = `grayscale(${value}%)`
-    grayscaleLabel.textContent = `Grayscale | ${value}%`
+    grayscale = grayscaleBtn.value
+    editImage()
+    grayscaleLabel.textContent = `Grayscale | ${grayscale}%`
 })
 
 inversionBtn.addEventListener("input", function(){
-    const value = inversionBtn.value
-    editedImage.style.filter = `invert(${value}%)`
-    inversionLabel.textContent = `Inversion | ${value}%`
+    inversion = inversionBtn.value
+    editImage()
+    inversionLabel.textContent = `Inversion | ${inversion}%`
 })
 
 resetBtn.addEventListener("click", resetChanges)
+
+downloadBtn.addEventListener("click", dowloadEditedImage)
+
+function editImage(){
+    editedImage.style.filter = `brightness(${brightness}%) saturate(${saturation}%) grayscale(${grayscale}%) invert(${inversion}%)`
+    editedImage.style.transform = `rotate(${rotation}deg) scaleX(${scaleX}) scaleY(${scaleY})`
+}
 
 function resetChanges(){
     resetRotateBtns()
@@ -89,19 +100,17 @@ function resetChanges(){
 }
 
 function resetSettingsBtns() {
-    editedImage.style.filter = `brightness(100%)`
+    editedImage.style.filter = `brightness(100%) saturate(100%) grayscale(0) invert(0)`
+
     brightnessLabel.textContent = `Brightness | 100%`
     brightnessBtn.value = 100
 
-    editedImage.style.filter = `saturate(100%)`
     saturationLabel.textContent = `Saturation | 100%`
     saturationBtn.value = 100
 
-    editedImage.style.filter = `grayscale(0)`
     grayscaleLabel.textContent = `Grayscale | 0%`
     grayscaleBtn.value = 0
 
-    editedImage.style.filter = `invert(0)`
     inversionLabel.textContent = `Inversion | 0%`
     inversionBtn.value = 0
 }
@@ -111,9 +120,25 @@ function resetRotateBtns() {
     scaleX = 1
     scaleY = 1
 
-    editedImage.style.transform = `rotate(0)`
-    editedImage.style.transform = `scaleX(1)`
-    editedImage.style.transform = `scaleY(1)`
+    editedImage.style.transform = `rotate(0) scaleX(1) scaleY(1)`
+}
+
+function dowloadEditedImage() {
+    const canvas = document.createElement("canvas")
+    const ctx = canvas.getContext("2d")
+    canvas.width = editedImage.naturalWidth
+    canvas.height = editedImage.naturalHeight
+    
+    ctx.filter = `brightness(${brightness}%) saturate(${saturation}%) grayscale(${grayscale}%) invert(${inversion}%)`
+    ctx.translate(canvas.width/2,canvas.height/2)
+    ctx.scale(scaleX,scaleY)
+    ctx.rotate(rotation*Math.PI/180)
+    ctx.drawImage(editedImage,-canvas.width/2,-canvas.height/2,canvas.width,canvas.height)
+    
+    const link = document.createElement("a")
+    link.download = "editedImage"
+    link.href = canvas.toDataURL()
+    link.click()
 }
 
 window.addEventListener("load", resetChanges)
