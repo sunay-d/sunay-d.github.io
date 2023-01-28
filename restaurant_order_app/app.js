@@ -40,6 +40,7 @@ document.addEventListener("click", function(e){
     }else if(e.target.id === "payment-btn"){
         e.preventDefault()
         order = []
+        totalPrice = 0
         orderSummary()
         document.getElementById("purchase-modal").classList.add("hidden")
         document.getElementById("payment-message").classList.remove("hidden")
