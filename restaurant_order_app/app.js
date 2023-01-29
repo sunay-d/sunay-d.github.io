@@ -1,7 +1,7 @@
 import { menuArray } from "./data.js"
 
 const option = document.getElementById("categories")
-option.addEventListener("click", render)
+option.addEventListener("change", render)
 let order = []
 let totalPrice = 0
 
