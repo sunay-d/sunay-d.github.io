@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts CDN -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+    <!-- custom stylesheet -->
     <link rel="stylesheet" href="style.css">
     <title>Sunay's Diner</title>
 </head>
@@ -17,17 +19,27 @@
             <h3>The best burgers and pizzas in town</h3>
         </header>
         <div class="categories">
-            <label for="categories"></label>
-            <select name="categories" id="categories">
-                <option value="all">All Categories</option>
-                <option value="main">Main</option>
-                <option value="desert">Deserts</option>
-                <option value="beverage">Beverages</option>
-            </select>
+            <div class="sort">
+                <label for="categories"></label>
+                <select name="categories" id="categories">
+                    <option value="all">All Categories</option>
+                    <option value="main">Main</option>
+                    <option value="desert">Deserts</option>
+                    <option value="beverage">Beverages</option>
+                </select>
+                <label for="sort-by"></label>
+                <select name="sort-by" id="sort-by">
+                    <option value="sort-by">Sort by</option>
+                    <option value="descending">Price-descending</option>
+                    <option value="increasing">Price-increasing</option>
+                </select>
+            </div>
         </div>
         <main>
             <div id="menu-list"></div>
-            <div class="payment-message hidden" id="payment-message"><p></p></div>
+            <div class="payment-message hidden" id="payment-message">
+                <p></p>
+            </div>
         </main>
         <div class="order hidden" id="order">
             <h2>Your order</h2>
@@ -49,7 +61,7 @@
                 <input type="text" placeholder="Enter card number" name="card-number" id="card-number" required>
                 <label for="card-cvv"></label>
                 <input type="text" maxlength="3" placeholder="Enter CVV" name="card-cvv" id="card-cvv" required>
-                <button class="payment-btn" id="payment-btn">Pay</button>
+                <button class="payment-btn" id="payment-btn" type="submit">Pay</button>
                 <button class="cancel-btn" id="cancel-btn" type="button">Cancel</button>
             </form>
         </div>

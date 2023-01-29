@@ -109,5 +109,50 @@ export const menuArray = [
         price: 3,
         discount: 0
     },
+    {
+        id: uuidv4(),
+        name: "Wine",
+        image: "🍷",
+        ingredients: [""],
+        category: "beverage",
+        price: 15,
+        discount: 0
+    },
+    {
+        id: uuidv4(),
+        name: "Burito",
+        image: "🌯",
+        ingredients: [""],
+        category: "main",
+        price: 10,
+        discount: 0
+    },
+    {
+        id: uuidv4(),
+        name: "Sandwich",
+        image: "🥪",
+        ingredients: ["bread, cheese, lettuce, tomatoes"],
+        category: "main",
+        price: 5,
+        discount: 0
+    },
+    {
+        id: uuidv4(),
+        name: "Orange Juice",
+        image: "🥤",
+        ingredients: ["orange"],
+        category: "beverage",
+        price: 5,
+        discount: 0
+    },
+    {
+        id: uuidv4(),
+        name: "Donuts",
+        image: "🍩",
+        ingredients: ["chocolate"],
+        category: "desert",
+        price: 5,
+        discount: 0
+    },
 
 ]

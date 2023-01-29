@@ -1,9 +1,26 @@
 import { menuArray } from "./data.js"
 
 const option = document.getElementById("categories")
+const sortBy = document.getElementById("sort-by")
+const paymentForm = document.getElementById("payment-form")
+
 option.addEventListener("change", render)
+sortBy.addEventListener("change", render)
+paymentForm.addEventListener("submit", function(e){
+    e.preventDefault()
+    const paymentForm = document.getElementById("payment-form")
+    const paymentData = new FormData(paymentForm)
+    const userName = paymentData.get("user-name")
+    order = []
+    totalPrice = 0
+    orderSummary()
+    document.getElementById("purchase-modal").classList.add("hidden")
+    document.getElementById("payment-message").classList.remove("hidden")
+    document.getElementById("payment-message").textContent = `Thanks ${userName}! Your order is on its way!`
+})
 let order = []
 let totalPrice = 0
+
 
 document.addEventListener("click", function(e){
     document.getElementById("payment-message").classList.add("hidden")
@@ -36,26 +53,14 @@ document.addEventListener("click", function(e){
     }else if(e.target.id === "complete-order-btn"){
         document.getElementById("purchase-modal").classList.remove("hidden")
     }else if(e.target.id === "cancel-btn"){
-        document.getElementById("purchase-modal").classList.add("hidden")
-    }else if(e.target.id === "payment-btn"){
-        e.preventDefault()
-        const paymentForm = document.getElementById("payment-form")
-        const paymentData = new FormData(paymentForm)
-        const userName = paymentData.get("user-name")
-        order = []
-        totalPrice = 0
-        orderSummary()
-        document.getElementById("purchase-modal").classList.add("hidden")
-        document.getElementById("payment-message").classList.remove("hidden")
-        document.getElementById("payment-message").textContent = `Thanks ${userName}! Your order is on its way!`
-
-    }
+        document.getElementById("purchase-modal").classList.add("hidden")}
 })
 
 
 function render() {
     let menu = ''
     let newList
+
     if (option.value === "all"){
         newList = menuArray
     }else if (option.value === "main") {
@@ -65,7 +70,14 @@ function render() {
     }else if (option.value === "beverage") {
         newList = menuArray.filter(element => element.category === "beverage")
     }
-    newList.forEach(function(dish){
+
+    let newListSorted = [...newList]
+    if (sortBy.value === "descending") {
+        newListSorted.sort((a,b) => (a.price < b.price) ? 1 : -1)
+    } else if (sortBy.value === "increasing") {
+        newListSorted.sort((a,b) => (a.price > b.price) ? 1 : -1)
+    }
+    newListSorted.forEach(function(dish){
         menu += `
             <div class="card">
                 <h2 class="dish-emoji">${dish.image}</h2> 
