@@ -39,12 +39,15 @@ document.addEventListener("click", function(e){
         document.getElementById("purchase-modal").classList.add("hidden")
     }else if(e.target.id === "payment-btn"){
         e.preventDefault()
+        const paymentForm = document.getElementById("payment-form")
+        const paymentData = new FormData(paymentForm)
+        const userName = paymentData.get("user-name")
         order = []
         totalPrice = 0
         orderSummary()
         document.getElementById("purchase-modal").classList.add("hidden")
         document.getElementById("payment-message").classList.remove("hidden")
-        document.getElementById("payment-message").textContent = "Thanks James! Your order is on its way!"
+        document.getElementById("payment-message").textContent = `Thanks ${userName}! Your order is on its way!`
 
     }
 })
@@ -65,11 +68,11 @@ function render() {
     newList.forEach(function(dish){
         menu += `
             <div class="card">
-                <h1>${dish.image}</h1> 
+                <h2 class="dish-emoji">${dish.image}</h2> 
                 <div class="details">
-                    <h2>${dish.name}</h2>
-                    <p>${dish.ingredients}</p>
-                    <p>$${dish.price}</p>
+                    <h2 class="dish-name">${dish.name}</h2>
+                    <p class="dish-ingredients">${dish.ingredients}</p>
+                    <p class="dish-price">$${dish.price}</p>
                 </div>
                 <button class="add-btn" data-add=${dish.id}> + </button>
             </div>

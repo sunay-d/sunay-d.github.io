@@ -36,5 +36,78 @@ export const menuArray = [
         category: "desert",
         price: 8,
         discount: 0
-    }
+    },
+    {
+        id: uuidv4(),
+        name: "Steak",
+        image: "🥩",
+        ingredients: [],
+        category: "main",
+        price: 18,
+        discount: 0
+    },
+    {
+        id: uuidv4(),
+        name: "French Fries",
+        image: "🍟",
+        ingredients: ["potatoes, olive oil"],
+        category: "main",
+        price: 5,
+        discount: 0
+    },
+    {
+        id: uuidv4(),
+        name: "Hot Dog",
+        image: "🌭",
+        ingredients: ["sausages, bread"],
+        category: "main",
+        price: 10,
+        discount: 0
+    },
+    {
+        id: uuidv4(),
+        name: "Ice Cream",
+        image: "🍨",
+        ingredients: ["vanilla, fruits"],
+        category: "desert",
+        price: 8,
+        discount: 0
+    },
+    {
+        id: uuidv4(),
+        name: "Salad",
+        image: "🥗",
+        ingredients: ["domatoes, cucumber"],
+        category: "main",
+        price: 8,
+        discount: 0
+    },
+    {
+        id: uuidv4(),
+        name: "Croissant",
+        image: "🥐",
+        ingredients: [""],
+        category: "desert",
+        price: 5,
+        discount: 0
+    },
+    {
+        id: uuidv4(),
+        name: "Tea",
+        image: "🍵",
+        ingredients: [""],
+        category: "beverage",
+        price: 2,
+        discount: 0
+    },
+    {
+        id: uuidv4(),
+        name: "Coffee",
+        image: "☕",
+        ingredients: [""],
+        category: "beverage",
+        price: 3,
+        discount: 0
+    },
+
 ]

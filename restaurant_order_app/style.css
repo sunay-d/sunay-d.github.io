@@ -5,7 +5,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: gray;
+    background-color: #2b1f1d;
     font-family: 'Smythe', cursive;
 }
 
@@ -17,6 +17,7 @@ body {
     background-color: #F5F5F5;
     margin: auto auto;
     max-width: 37.5rem;
+    width: 100%;
     height: fit-content;
 }
 
@@ -29,6 +30,7 @@ header {
 }
 
 header h1{
+    margin: 0;
     padding: 4rem 0 0 3rem;
     font-weight: 400;
     font-size: 2.5rem;
@@ -49,8 +51,9 @@ header h3{
     height: 5rem;
     font-family: 'Smythe', cursive;
     font-size: 2rem;
-    background-color: rgb(238, 236, 236);
+    background-color: rgb(221, 217, 217);
     cursor: pointer;
+    border: none;
 }
 
 option {
@@ -79,7 +82,7 @@ main {
 .payment-message {
     background: #ECFDF5;
     border-radius: 3px;
-    width: 32rem;
+    width:80%;
     height: 5rem;
     color:#065F46;
     margin: 2rem auto;
@@ -91,23 +94,31 @@ main {
 
 .card {
     display:  grid;
-    grid-template-columns: 10% 80% 10%;
+    grid-template-columns: 20% 60% 20%;
     justify-content: left;
     align-items: center;
     margin: 0;
     padding: 0;
-    width: 32rem;
+    width: 90%;
     height: 9rem;
     border-bottom: 1px solid rgb(190, 189, 189);
 
 }
 
-.dish-name h3 {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.75rem;
-    line-height: 1rem;
+.dish-name{
+    font-size: 2rem;
+    margin: 0.5rem .5rem ;
 }
+
+.dish-ingredients {
+    margin: 0.5rem .5rem;
+}
+
+.dish-price {
+    font-size: 1.5rem;
+    margin: 1.5rem .5rem;
+}
+
 
 .add-btn {
     border-radius: 50%;
@@ -115,12 +126,13 @@ main {
     height: 3rem;
     background-color: transparent;
     border: 1px solid rgb(163, 163, 163);
-    margin-top: 53px;
+    justify-self: right;
     cursor: pointer;
 }
 
 .order {
     text-align: center;
+    width: 90%;
     max-width: 32rem;
     margin: auto;
 }
@@ -128,6 +140,10 @@ main {
 .dish, .total {
     display: flex;
     justify-content: space-between;
+}
+
+.dish-emoji {
+    font-size: 3rem;
 }
 
 .dish h2 {
@@ -226,3 +242,6 @@ main {
 .cancel-btn {
     background-color: gray;
 }
+
+
+
