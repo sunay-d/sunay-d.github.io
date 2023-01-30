@@ -36,7 +36,7 @@ function render() {
                 <img class="icon dm" src="./images/icon-dm.png"></img>
             </div>
             <p><span class="bold">${post.likes} likes</span></p>
-            <p><span class="bold">vincey1853</span> ${post.comment}</p>
+            <p><span class="bold">${post.username}</span> ${post.comment}</p>
         </div>
         `
     }
