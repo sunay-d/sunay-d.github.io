@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #2b1f1d;
+    background-repeat: no-repeat;
     font-family: 'Smythe', cursive;
 }
 
@@ -211,7 +212,7 @@ main {
     bottom: 0;
     margin: auto;
     background-color: white;
-    filter: drop-shadow(5.18654px 5.18654px 255.437px rgba(0, 0, 0, 0.5));
+    filter: box-shadow(5.18654px 5.18654px 255.437px rgba(0, 0, 0, 0.5));
 }
 
 .purchase-modal h2{
