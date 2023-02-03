@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Tindog</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="navbar">
+                <img class="navbar-icon icon" src="./images/icons/icon-profile.png" alt="profile-logo">
+                <img class="navbar-icon logo" src="./images/icons/logo.png" alt="tindog-logo" data-logo="logo">
+                <img class="navbar-icon icon" src="./images/icons/icon-chat.png" alt="chat-logo">
+            </div>
+        </header>
+        <div id="app-container">     
+            <main>
+                <div class="displayed-dog">
+                    <div id="dog-card" class="dog-card">
+
+                    </div>
+                    <img id="nope-badge" class="nope-badge badge" src="./images/icons/badge-nope.png">
+                    <img id="like-badge" class="like-badge badge" src="./images/icons/badge-like.png">
+                </div>
+                <div class="like-btns">
+                    <button id="cross-btn" class="btn cross-btn"><img src="./images/icons/icon-cross.png" data-cross="nope-badge"></button>
+                    <button id="heart-btn" class="btn heart-btn"><img src="./images/icons/icon-heart.png" data-heart="like-badge"></button>
+                </div>  
+            </main>
+        </div>
+        <div id="last-page" class="last-page">
+            <p id="message">You like these cuties 🐶</p>
+            <div id="liked-dogs" class="liked-dogs">
+
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/swipe-event-listener@1.2.1/dist/swipe-event-listener.js"></script>
+    <script src="./script.js" type="module"></script>
+</body>
+</html>
