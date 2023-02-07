@@ -1,0 +1,275 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: url(./img/background1.png) no-repeat;
+    background-size: cover;
+    color: #182752;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    background-color: #182752;
+    max-width: 1500px;
+    max-height: 100vh;
+}
+
+.app {
+    margin: auto;
+    width: 100%;
+    padding: 2% 15% 0 15%;
+    display: flex;
+    flex-direction: column;
+    max-width: 1500px;
+    max-height: 1024px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-weight: 300;
+}
+
+h2 {
+    margin: 0;
+}
+
+.output-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2%;
+    border: .5px solid #18295248;
+    width: 100%;
+    height: 75px;
+    align-self: center;
+}
+
+.password {
+    margin: auto;
+    font-size: 3rem;
+    color: #93032e;
+}
+
+.copy-btn {
+    height: 50%;
+    cursor: pointer;
+}
+
+.password-generate-btn {
+    width: 10rem;
+    height: 4rem;
+    margin: 1rem 0 0 auto;
+    background-color: #182752;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+}
+
+.password-generate-btn:hover, .password-generate-btn:focus {
+    background-color: #223770;
+}
+
+.password-generate-btn:active {
+    background-color: #2e4b9b;
+}
+
+.settings-area {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0 15vh 0;
+}
+
+.left-settings {
+    background-color: rgba(245, 245, 245, 0.432);
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.length {
+    margin-bottom: 2rem;
+    width: 14rem;
+    accent-color: #182752;
+    cursor: pointer;
+}
+
+.length::-webkit-slider-thumb{
+    background: #182752;
+}
+
+.checkboxes {
+    display: grid;
+    grid-template-columns: 10rem 10rem;
+    justify-items: start;
+    gap: 1.5rem;
+}
+
+
+.checkbox {
+    width: 25px;
+    height: 25px;
+    accent-color: #182752;    
+}
+
+
+label{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+
+.spec-word-label{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.spec-word-label p{
+    margin-left: -6rem;
+}
+
+.length-label {
+    margin: -2rem 0 0 .5rem;
+}
+
+.type-areas {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+
+.text-input {
+    border: 1px solid #182752;
+    height: 2rem;
+    width: 10rem;
+    background-color: transparent;
+    color:#182752;
+    font-family: 'Noto Sans', sans-serif;
+    accent-color: #182752;
+    appearance: textfield;
+}
+
+.spec-word {
+    width: 15rem;
+}
+
+.old-passwords {
+    margin: auto;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: #182752;
+    width: 100%;
+    color: whitesmoke;
+}
+
+.pasw {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 15%;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.mobile {
+    display: none;
+}
+
+
+@media screen and (max-width: 1200px) {
+    body {
+        background: #182752;
+    }
+
+    header {
+        margin-top: 2%;
+        background-image: url(./img/background1.png);
+        background-size: cover;
+        padding: 1rem;
+    }
+
+    .output-container {
+        background-color: rgba(245, 245, 245, 0.493);
+    }
+
+    .app {
+        padding: 2% 2% 0 2%;
+    }
+
+    .password {
+        font-size: 1.5rem;
+    }
+
+    .left-settings {
+        margin: auto;
+    }
+
+
+    .settings-area {
+
+        width: 100%;
+        flex-direction: column;
+        background-color: rgba(245, 245, 245, 0.87);
+        padding: 1rem;
+        margin-top: 2rem;
+    }
+
+    .checkboxes {
+        margin: auto;
+        display: flex;
+        justify-content:space-between;
+        flex-wrap: wrap;
+        flex-shrink: 0;
+        flex-grow: 0;
+        flex-basis: 2rem;
+    }
+
+    .checkbox {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    label {
+        font-weight: 500;
+    }
+
+    .type-areas {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .text-input {
+        background-color: rgba(245, 245, 245, 0.534);
+        height: 3rem;
+    }
+
+    .spec-word {
+        width: 75%;
+    }
+
+    .old-passwords {
+        display: none;
+    }
+
+}
+

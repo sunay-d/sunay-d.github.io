@@ -3,43 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Serif&display=swap" rel="stylesheet"> 
-    <link href="css/styles.css" rel="stylesheet">
-    <title>Random Password Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Password Generator</title>
 </head>
-<body>
-    <div class="container">
-        <h1>Random Password <br>Generator</h1>
-
-        <input class="display" id="display" type="text" maxlength="25" value="" disabled></input>
-
-        <button id="generatebutton" onclick="generate()">Generate</button>
-
-        <h2>Customize your password</h2>
-        
-        <div class="textbox">
-            <div class="textbox-item">
-                <label class="textbox-label" for="length" >Password length:</label>
-                <input class="textbox-input" id="length" type="number" max="25" min="4" value="12"></input>
+<body class="flex-y">
+    <div class="app flex-y">
+        <header class="container flex-y">
+            <h1>PASSWORD GENERATOR</h1>
+            <div class="output-container flex">
+                <div class="password" id="password"></div>
+                <img class="copy-btn" src="./img/copy.png" alt="copy-password-icon">
             </div>
-            <div class="textbox-item">
-                <label class="textbox-label" for="chars">Special characters:</label>
-                <input class="textbox-input" id="chars" type="text" maxlength="10" placeholder="%!*@#$()^&" value="%!*@#$()^&"></input>
+            <button class="password-generate-btn">New Password</button>
+        </header>
+        <div class="settings-area">
+            <div class="left-settings">
+                <label for="length"><input class="length" type="range" id="length" name="length" min="6" max="20" value="12"><p class="length-label" id="length-label">Length: 12</p></label>
+                <div class="checkboxes">   
+                    <label for="upper-case">
+                        <input type="checkbox" id="upper-case" class="upper-case checkbox" checked>Upper Case
+                    </label>   
+                    <label for="lower-case">
+                        <input type="checkbox" id="lower-case" class="lower-case checkbox" checked>Lower Case
+                    </label>    
+                    <label for="nums">
+                        <input type="checkbox" id="nums" class="nums checkbox" checked>Numbers
+                    </label>   
+                    <label for="spec-char">
+                        <input type="checkbox" id="spec-char" class="spec-char checkbox" checked>%!*@#$()^&
+                    </label>     
+                </div>
             </div>
-        </div>
-        <p><b>Use</b></p>
-        <div class="checkbox">
-            <input class="checkbox-item" id= num type="checkbox" checked>Numbers</input>
-            <input class="checkbox-item" id= upper type="checkbox" checked>Upper Case</input>
-            <input class="checkbox-item" id=lower type="checkbox" checked>Lower Case</input> 
+            <div class="type-areas">
+                <label for="spec-word"></label>
+                <input type="spec-word" id="spec-word" class="spec-word text-input" max="25" placeholder="Password should include the word..." value="12">
+                <label for="split-word" class="spec-word-label"><input type="checkbox" id="split-word" class="spec-word checkbox"><p>Split the letters</p></label>   
+                
+            </div>
         </div>
     </div>
-    <footer>
-        <p>Sunay Doğan, 2022</p>
-    </footer>
-    <script src="js/function.js"></script>
+    <div id="old-passwords" class="old-passwords"></div>
+    <script src="script.js"></script>  
 </body>
 </html>
