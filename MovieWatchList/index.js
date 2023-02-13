@@ -28,7 +28,7 @@ function addToList(movie) {
 }
 
 function render() {
-    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=d031105a&s=${search.value}`)
+    fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=d031105a&s=${search.value}`)
     .then(response => response.json())
     .then(data => {
         document.getElementById("movie-list-container").innerHTML = ''
@@ -80,14 +80,14 @@ function getMovieCard(movie) {
 }
 
 async function getMovieDetails(title){
-    let data = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=d031105a&t=${title}`)
+    let data = await fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=d031105a&t=${title}`)
     let movie = await data.json()
     return movie
 }
 
 
 function firstQuery() {
-    fetch("http://www.omdbapi.com/?i=tt3896198&apikey=d031105a&s=all")
+    fetch("https://www.omdbapi.com/?i=tt3896198&apikey=d031105a&s=all")
         .then(response => response.json())
         .then(data => {
             for(let i=0; i<data.Search.length; i++) {
