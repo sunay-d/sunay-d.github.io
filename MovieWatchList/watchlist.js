@@ -1,6 +1,6 @@
 
 let watchlist = localStorage.getItem("watchlist")
-let watchlistParsed = JSON.parse(watchlist)
+let watchlistParsed = watchlist ? JSON.parse(watchlist) : {}
 
 function renderWatchlist() {
     let html = ''
