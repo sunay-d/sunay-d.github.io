@@ -1,6 +1,6 @@
 const search = document.getElementById("search-input")
 let watchlist = localStorage.getItem("watchlist")
-let watchlistParsed = JSON.parse(watchlist)
+let watchlistParsed = watchlist ? JSON.parse(watchlist) : {}
 
 document.addEventListener("click", function(e) {
     if (e.target.id === "search-btn") {
@@ -12,16 +12,23 @@ document.addEventListener("click", function(e) {
         search.value = ''
     } else if (e.target.dataset.add) {
         const movie = JSON.parse(e.target.dataset.add)
-        if(!watchlist) {
-            watchlistParsed = {}
-        }
-
-        if (watchlistParsed[movie.Title] != null) {
-            removeFromList(movie.Title)
+        if (watchlistParsed[movie.imdbID] != null) {
+            removeFromList(movie.imdbID)
         } else {
             addToList(movie)
         }
         localStorage.setItem('watchlist',JSON.stringify(watchlistParsed))
+    }
+})
+
+document.addEventListener("keypress", function(e){
+    if (e.key === 'Enter') {
+        if(search.value) {
+            render()
+        }else {
+            firstQuery()
+        }
+        search.value = ''
     }
 })
 
@@ -32,9 +39,9 @@ function removeFromList(movieTitle) {
 }
 
 function addToList(movie) {
-    watchlistParsed[movie.Title] = movie
-    document.getElementById(`ar-${movie.Title}`).textContent = "Remove"
-    document.getElementById(`arlogo-${movie.Title}`).src = "./img/removeicon.png"
+    watchlistParsed[movie.imdbID] = movie
+    document.getElementById(`ar-${movie.imdbID}`).textContent = "Remove"
+    document.getElementById(`arlogo-${movie.imdbID}`).src = "./img/removeicon.png"
 }
 
 function render() {
@@ -45,7 +52,7 @@ function render() {
         if (data.Search){
             document.getElementById("no-data").style.display = "none"
             for(let i=0; i<data.Search.length; i++) {
-                getMovieDetails(data.Search[i].Title).then(
+                getMovieDetails(data.Search[i].imdbID).then(
                     movieDetails => {
                         document.getElementById("movie-list-container").innerHTML += getMovieCard(movieDetails) }
                 )
@@ -59,33 +66,33 @@ function render() {
 function getMovieCard(movie) {
     if (movie) {
         let movieJson = JSON.stringify(movie).replace(/'/g, "&#039;")
-        function checkNA(property) {
+        function fixNA(property) {
             return property === "N/A" ? "" : property
         }
         return (`
         <div class="movie-card">
-        <img class="poster no-margin" src="${movie.Poster === "N/A" ? './img/alt-poster.jpg' : movie.Poster}" alt="${movie.Title} poster">
+        <img class="poster no-margin" src="${movie.Poster === "N/A" ? './img/alt-poster.jpg' : movie.Poster}" alt="${fixNA(movie.Title)} poster">
             <div class="movie-info no-margin">
                 <div class="title no-margin">
-                    <h3 class="no-margin">${checkNA(movie.Title)}</h3>
+                    <h3 class="no-margin">${fixNA(movie.Title)}</h3>
                     <div class="rating no-margin">
                         <i class="fa fa-star no-margin"></i>
-                        <p class="no-margin">${checkNA(movie.imdbRating)}</p>
+                        <p class="no-margin">${fixNA(movie.imdbRating)}</p>
                     </div>
                 </div>
                 <div class="details">
                     <div class="time-genre">
-                        <p class="time">${checkNA(movie.Runtime)}</p> 
-                        <p class="genre">${checkNA(movie.Genre)}</p>
+                        <p class="time">${fixNA(movie.Runtime)}</p> 
+                        <p class="genre">${fixNA(movie.Genre)}</p>
                     </div>
                     <div class="add-to-list">
-                        <img class="no-margin" id="arlogo-${movie.Title}" src=${watchlistParsed[movie.Title] ? "./img/removeicon.png" : "./img/addicon.png"} alt="add to watchlist icon" data-add='${movieJson}'>
-                        <p class="no-margin"  id="ar-${movie.Title}" data-add='${movieJson}'>${watchlistParsed[movie.Title] ? "Remove" : "Watchlist"}</p>
+                        <img class="no-margin" id="arlogo-${movie.imdbID}" src=${watchlistParsed[movie.imdbID] ? "./img/removeicon.png" : "./img/addicon.png"} alt="add to watchlist icon" data-add='${movieJson}'>
+                        <p class="no-margin"  id="ar-${movie.imdbID}" data-add='${movieJson}'>${watchlistParsed[movie.imdbID] ? "Remove" : "Watchlist"}</p>
                     </div>
                 </div>
                 <div class="summary no-margin">
                     <article class="no-margin">
-                        ${checkNA(movie.Plot)}
+                        ${fixNA(movie.Plot)}
                     </article>
                 </div>
             </div>
@@ -95,8 +102,8 @@ function getMovieCard(movie) {
     return ''
 }
 
-async function getMovieDetails(title){
-    let data = await fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=d031105a&t=${title}`)
+async function getMovieDetails(imdbID){
+    let data = await fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=d031105a`)
     let movie = await data.json()               
     if (!movie.Error) {
         return movie
@@ -111,7 +118,7 @@ function firstQuery() {
         .then(response => response.json())
         .then(data => {
             for(let i=0; i<data.Search.length; i++) {
-                getMovieDetails(data.Search[i].Title).then(
+                getMovieDetails(data.Search[i].imdbID).then(
                     movieDetails => { document.getElementById("movie-list-container").innerHTML += getMovieCard(movieDetails) }
                 )
             }
