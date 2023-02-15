@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 2px 2px 3px #474747;
+}
+
+main {
+    padding: 15px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .2rem;
+}
+
+.weather .weather-temp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather p, .weather img {
+    margin: 0;
+    padding: 0;
+}
+
+.weather img {
+    width: 3rem;
+}
+
+
+.time {
+    position: absolute;
+    top:45%;
+    left: 40%;
+    margin: auto;
+    padding: 0 1rem;
+    background-color: #2f2f2f2f;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.time h1 {
+    margin: 0;
+    font-size: 5rem;
+}
+
+.tabs {
+    background-color: rgba(0, 0, 0, 0.527);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap:2.2rem;
+    border-radius: 5px;
+}
+
+.link {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.link img {
+    width: 40px;
+}
+
+#eksiSozluk img {
+    width: 30px;
+}
+
+.link svg {
+    width: 55px;
+}
+
+.link a{
+    text-decoration: none;
+    color: white;
+}
