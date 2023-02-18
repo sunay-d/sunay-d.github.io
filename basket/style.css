@@ -20,6 +20,17 @@ body {
     padding: 2% 2%;
 }
 
+button {
+    cursor: pointer;
+}
+
+.board {
+    border: 1px inset;
+    background-color: #2e3035;
+    padding: 1rem;
+    margin: 0;
+}
+
 #scoreboard {
     margin-top: -3rem;
 }
@@ -37,7 +48,7 @@ h4 {
 .box {
     background-color: black;
     width: auto;
-    height: 1.4em; 
+    height: 1.5em; 
     padding-top: .2em;
     border-radius: 5px; 
     text-shadow: 
@@ -86,8 +97,10 @@ h4 {
 
 .period {
     align-self: center;
-    margin-top: -5rem;
+    margin-top: -12rem;
+    width: 5rem;
 }
+
 .increment, .timeout-foul {
     display: flex;
 }
@@ -122,12 +135,15 @@ h4 {
     background-color: #438f06;
     color: black;
 }
+
 #newgame:hover {
     background-color: #316804;
 }
-#newgame:active {
+
+#newgame:active, #newgame:disabled {
     background-color: #234b03;
 }
+
 .game button {
     font-family: 'Noto Sans', sans-serif;
     background-color: transparent;
@@ -143,7 +159,10 @@ button:hover {
     background-color: #474a50;
 }
 
-button:active {
+button:active, button:disabled {
     background-color: #63676e;
+    cursor: default;
 }
+
+
 

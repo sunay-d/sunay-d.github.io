@@ -8,6 +8,7 @@ let period = 1
 let duration = 600
 let pause = 0
 let timerInterval
+const buzzer = new Audio('./buzzer.wav')
 
 function newGame() {
     homeScore = 0
@@ -86,9 +87,10 @@ function startTimer() {
             document.getElementById("timer").textContent = minutes + ":" + seconds;
     
             if (--timer < 0) {
+                buzzer.play()
+                pauseTimer()
                 timer = duration;
-                period = period+1
-                period === 4 && pauseTimer()
+                period = period === 4 ? 1 : period+1
                 document.getElementById("period").textContent = period
             }
         }
@@ -98,4 +100,12 @@ function startTimer() {
 
 function pauseTimer() { 
     pause = 1-pause
+    if (pause) {
+        document.querySelectorAll("button").forEach(element => {
+            element.disabled = element.id != "pause-timer" ? true : false
+        })
+    }else {
+        document.querySelectorAll("button").forEach(element => {
+            element.disabled = false})
+    }
  }
