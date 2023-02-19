@@ -232,7 +232,7 @@ button:active, button:disabled {
     cursor: default;
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:800px) {
     .board {
         display: none;
     }
