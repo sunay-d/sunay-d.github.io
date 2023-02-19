@@ -4,82 +4,169 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>ScoreBoard</title>
 </head>
-<body onload="newGame()">
+<body>
     <div class="board">
-        <div id="time">
-            <h3>TIME</h3>
-            <h1 class="box" id="timer">00:00</h1>
-        </div>
-        <div id="scoreboard">
+        <div class="left">
             <div id="home">
-                <h2 class="winner" id="home-winner">leader</h2>
+                <div class="winner box" ><h2 id="home-winner">leader</h2></div>
                 <h2>HOME</h2>
-                <h1 class="box" id="home-score">0</h1>
+                <div class="box"><h1 id="home-score">0</h1></div>
                 <div class="flex">
                     <div class="timeout">
-                        <h3>T.OUT</h4>
-                        <h4 class="box" id="home-tout">0</h4>
+                        <h3>T.OUT</h3>
+                        <div class="box"><h4 id="home-tout">0</h4></div>
                     </div>
                     <div class="foul">
                         <h3>FOUL</h3>
-                        <h4 class="box" id="home-tfoul">0</h4>
+                        <div class="box"><h4 id="home-tfoul">0</h4></div>
                     </div>
                 </div>
                 <div class="btn">
                     <div class="increment">
-                        <button onclick="score(0,1)">+1</button>
-                        <button onclick="score(0,2)">+2</button>
-                        <button onclick="score(0,3)">+3</button>
+                        <button onclick="score('home',1)">+1</button>
+                        <button onclick="score('home',2)">+2</button>
+                        <button onclick="score('home',3)">+3</button>
                     </div>
                     <div class="timeout-foul">
-                        <button onclick="timeout(0)">Time Out</button>
-                        <button onclick="foul(0)">Foul</button>
+                        <button onclick="timeout('home')">Time Out</button>
+                        <button onclick="foul('home')">Foul</button>
                     </div>    
                </div> 
             </div>
-            <div class="period">
-                <h3>PERIOD</h3>
-                <h2 class="box" id="period">1</h2>
+        </div>
+        <div class="middle">
+            <div id="time">
+                <h3>TIME</h3>
+                <div class="box timer"><h1 id="timer">00:00</h1></div>
             </div>
+            <div class="period-container">
+                <h3>PERIOD</h3>
+                <div class="box period"><h2 id="period">1</h2></div>
+            </div>
+            <div class="game-container">
+                <button id="pause-timer" class="exempt" onclick="toggleTimer()"> Start / Pause Timer </button>
+                <button id="newgame" class="exempt"> New Game </button>
+            </div>
+        </div>
+        <div class="right">
             <div id="guest">
-                <h2 class="winner" id="guest-winner">leader</h2>
+                <div class="winner box" ><h2 id="guest-winner" >leader</h2></div>
                 <h2>GUEST</h2>
-                <h1 class="box" id="guest-score">0</h1>
+                <div class="box"><h1 id="guest-score">0</h1></div>
                 <div class="flex">
                     <div class="timeout">
-                        <h3>T.OUT</h4>
-                        <h4 class="box" id="guest-tout">0</h4>
+                        <h3>T.OUT</h3>
+                        <div class="box"><h4 id="guest-tout">0</h4></div>
                     </div>
                     <div class="foul">
                         <h3>FOUL</h3>
-                        <h4 class="box" id="guest-tfoul">0</h4>
+                        <div class="box"><h4 id="guest-tfoul">0</h4></div>
                     </div>
                 </div>
                 <div class="btn">
                     <div class="increment">
-                        <button onclick="score(1,1)">+1</button>
-                        <button onclick="score(1,2)">+2</button>
-                        <button onclick="score(1,3)">+3</button>
+                        <button onclick="score('guest',1)">+1</button>
+                        <button onclick="score('guest',2)">+2</button>
+                        <button onclick="score('guest',3)">+3</button>
                     </div>
                     <div class="timeout-foul">
-                        <button onclick="timeout(1)">Time Out</button>
-                        <button onclick="foul(1)">Foul</button>
+                        <button onclick="timeout('guest')">Time Out</button>
+                        <button onclick="foul('guest')">Foul</button>
                     </div>    
                </div>   
-             </div>
+            </div>
         </div>
-        <div class="game">
-            <button id="pause-timer" onclick="pauseTimer()"> Start / Pause Timer </button>
-            <button id="newgame" onclick="newGame()"> New Game </button>
-        </div>
-        <script src="scoreboard.js"></script> 
+    </div>
+    <!-- Pop up is to determine the length of each period with the input value from the user-->
+    <div id="popup" class="popUp">
+        <h4>What will be length of each period?</h4>
+        <select id="duration">
+            <option value="5">5 minutes</option>
+            <option value="10">10 minutes</option>
+            <option value="15">15 minutes</option>
+            <option value="20">20 minutes</option>
+            <option value="25">25 minutes</option>
+            <option value="30">30 minutes</option>
+        </select>
+        <button id="startNewGame" class="exempt">Start Game</button><button id="cancel" class="cancel exempt">Cancel</button>
     </div>
 
+    <!-- For devices with screen width<1000px the below html will be rendered -->
+    <div class="board-mobile">
+        <div id="time">
+            <h3>TIME</h3>
+            <div class="box timer"><h1 id="timer">00:00</h1></div>
+        </div>
+        <div class="period-container">
+            <h3>PERIOD</h3>
+            <div class="box period"><h2 id="period">1</h2></div>
+        </div>
+        <div class="teams">
+            <div class="left">
+                <div id="home">
+                    <div class="winner box" ><h2 id="home-winner">leader</h2></div>
+                    <h2>HOME</h2>
+                    <div class="box"><h1 id="home-score">0</h1></div>
+                    <div class="flex">
+                        <div class="timeout">
+                            <h3>T.OUT</h3>
+                            <div class="box"><h4 id="home-tout">0</h4></div>
+                        </div>
+                        <div class="foul">
+                            <h3>FOUL</h3>
+                            <div class="box"><h4 id="home-tfoul">0</h4></div>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <div class="increment">
+                            <button onclick="score('home',1)">+1</button>
+                            <button onclick="score('home',2)">+2</button>
+                            <button onclick="score('home',3)">+3</button>
+                        </div>
+                        <div class="timeout-foul">
+                            <button onclick="timeout('home')">Time Out</button>
+                            <button onclick="foul('home')">Foul</button>
+                        </div>    
+                   </div> 
+                </div>
+            </div>
+            <div class="right">
+                <div id="guest">
+                    <div class="winner box" ><h2 id="guest-winner" >leader</h2></div>
+                    <h2>GUEST</h2>
+                    <div class="box"><h1 id="guest-score">0</h1></div>
+                    <div class="flex">
+                        <div class="timeout">
+                            <h3>T.OUT</h3>
+                            <div class="box"><h4 id="guest-tout">0</h4></div>
+                        </div>
+                        <div class="foul">
+                            <h3>FOUL</h3>
+                            <div class="box"><h4 id="guest-tfoul">0</h4></div>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <div class="increment">
+                            <button onclick="score('guest',1)">+1</button>
+                            <button onclick="score('guest',2)">+2</button>
+                            <button onclick="score('guest',3)">+3</button>
+                        </div>
+                        <div class="timeout-foul">
+                            <button onclick="timeout('guest')">Time Out</button>
+                            <button onclick="foul('guest')">Foul</button>
+                        </div>    
+                   </div>   
+                </div>
+            </div>
+        </div>
+        <div class="game-container">
+            <button id="pause-timer" class="exempt" onclick="toggleTimer()"> Start / Pause Timer </button>
+            <button id="newgame" class="exempt" > New Game </button>
+        </div>
+    </div>
+    <script src="scoreboard.js"></script>
 </body>
 </html>

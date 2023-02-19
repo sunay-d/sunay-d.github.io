@@ -1,80 +1,85 @@
-let homeScore = 0
-let guestScore = 0
-let homeTimeOut = 0
-let guestTimeOut = 0
-let homeFoul = 0
-let guestFoul = 0
-let period = 1
-let duration = 600
-let pause = 0
+let [homeScore, guestScore, homeTimeOut, guestTimeOut, homeFoul, guestFoul, period, pause] = [0,0,0,0,0,0,1,0]
 let timerInterval
 const buzzer = new Audio('./buzzer.wav')
 
+
+document.addEventListener("click", (e) => {
+    if(e.target.id === "newgame"){
+        pause = 0
+        pauseTimer()
+        document.getElementById("popup").style.visibility = "visible"
+    }
+    else if(e.target.id === "cancel"){
+        document.getElementById("popup").style.visibility = "hidden"
+        resumeTimer()
+    }else if (e.target.id === "startNewGame"){
+        document.getElementById("popup").style.visibility = "hidden"
+        newGame()
+    }
+})
+
 function newGame() {
-    homeScore = 0
-    guestScore = 0
-    homeTimeOut = 0
-    guestTimeOut = 0
-    homeFoul = 0
-    guestFoul = 0
-    duration = 600
-    pause = 0
-    document.getElementById("home-score").textContent = homeScore
-    document.getElementById("guest-score").textContent = guestScore
-    document.getElementById("home-tout").textContent = homeTimeOut
-    document.getElementById("guest-tout").textContent = guestTimeOut
-    document.getElementById("home-tfoul").textContent = homeFoul
-    document.getElementById("guest-tfoul").textContent = guestFoul
-    document.getElementById("period").textContent = 1
+    const duration = Number(document.getElementById("duration").value)*60;
+    [homeScore, guestScore, homeTimeOut, guestTimeOut, homeFoul, guestFoul, period, pause] = [0,0,0,0,0,0,1,0]
+    display()
     clearInterval(timerInterval)
-    startTimer()
-    document.getElementById("home-winner").style.visibility = "hidden"
-    document.getElementById("guest-winner").style.visibility = "hidden"
+    startTimer(duration)
+    resumeTimer()
+    setLeader()
+}
+
+function display(){
+    document.querySelectorAll(`#home-score`).forEach(element => element.textContent = homeScore)
+    document.querySelectorAll(`#guest-score`).forEach(element => element.textContent = guestScore)
+    document.querySelectorAll(`#home-tout`).forEach(element => element.textContent = homeTimeOut)
+    document.querySelectorAll(`#guest-tout`).forEach(element => element.textContent = guestTimeOut)
+    document.querySelectorAll(`#home-tfoul`).forEach(element => element.textContent = homeFoul)
+    document.querySelectorAll(`#guest-tfoul`).forEach(element => element.textContent = guestFoul)
+    document.querySelectorAll("#period").forEach(element => element.textContent = period)
+}
+
+function setLeader(){
+    let leader = homeScore > guestScore ? "home" : "guest"
+    let opponent = homeScore > guestScore ? "guest" : "home"
+    if (homeScore-guestScore) {
+        document.getElementById(`${leader}-winner`).style.visibility = "visible"
+        document.getElementById(`${opponent}-winner`).style.visibility = "hidden"
+    }else {
+        document.getElementById(`${leader}-winner`).style.visibility = "hidden"
+        document.getElementById(`${opponent}-winner`).style.visibility = "hidden"
+    }
 }
 
 function score(team,n){
-    if (team === 0){
+    if (team === 'home'){
         homeScore += n
-        document.getElementById("home-score").textContent = homeScore
     } else {
         guestScore += n
-        document.getElementById("guest-score").textContent = guestScore
     }
-
-    if (homeScore > guestScore){
-        document.getElementById("home-winner").style.visibility = "visible"
-        document.getElementById("guest-winner").style.visibility = "hidden"
-    } else if (homeScore < guestScore) {
-        document.getElementById("home-winner").style.visibility = "hidden"
-        document.getElementById("guest-winner").style.visibility = "visible"
-    } else {
-        document.getElementById("home-winner").style.visibility = "hidden"
-        document.getElementById("guest-winner").style.visibility = "hidden"
-    }
+    display()
+    setLeader()
 }
 
 function timeout(team){
-    if (team === 0) {
+    if (team === 'home') {
         homeTimeOut += 1
-        document.getElementById("home-tout").textContent = homeTimeOut
     }else {
         guestTimeOut += 1 
-        document.getElementById("guest-tout").textContent = guestTimeOut
     }
+    display()
 }
 
 function foul(team){
-    if (team === 0) {
+    if (team === 'home') {
         homeFoul += 1
-        document.getElementById("home-tfoul").textContent = homeFoul
     }else {
         guestFoul += 1 
-        document.getElementById("guest-tfoul").textContent = guestFoul
     }
+    display()
+    console.log(team, homeFoul, guestFoul)
 }
 
-
-function startTimer() {
+function startTimer(duration) {
     let timer = duration, minutes, seconds;
     timerInterval = setInterval(function () {
         if (pause === 0){
@@ -84,14 +89,14 @@ function startTimer() {
             minutes = minutes < 10 ? "0" + minutes : minutes;
             seconds = seconds < 10 ? "0" + seconds : seconds;
     
-            document.getElementById("timer").textContent = minutes + ":" + seconds;
+            document.querySelectorAll("#timer").forEach(element => element.textContent = minutes + ":" + seconds)
     
             if (--timer < 0) {
                 buzzer.play()
                 pauseTimer()
                 timer = duration;
                 period = period === 4 ? 1 : period+1
-                document.getElementById("period").textContent = period
+                display()
             }
         }
         
@@ -99,13 +104,29 @@ function startTimer() {
 }
 
 function pauseTimer() { 
+    pause = 1
+    document.querySelectorAll("button").forEach(element => {
+        if (![...element.classList].includes("exempt")) {
+            element.disabled = true
+        }
+    })
+}
+
+function resumeTimer() {
+    pause = 0
+    document.querySelectorAll("button").forEach(element => {
+        element.disabled = false})
+}
+
+function toggleTimer() {
     pause = 1-pause
     if (pause) {
-        document.querySelectorAll("button").forEach(element => {
-            element.disabled = element.id != "pause-timer" ? true : false
-        })
+        pauseTimer()
     }else {
-        document.querySelectorAll("button").forEach(element => {
-            element.disabled = false})
+        resumeTimer()
     }
- }
+}
+
+
+
+newGame()

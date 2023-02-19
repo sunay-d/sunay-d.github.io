@@ -7,75 +7,139 @@
     src: url(digital.ttf);
 }
 
+.board-mobile {
+    display: none;
+}
+
+.popUp {
+    position: absolute;
+    top:auto;
+    left:auto;
+    margin: auto;
+    padding: 5% 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f79d7a;
+    min-height: 50vh;
+    min-width: 50vw;
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    border: 1px solid black;
+}
+
+.popUp h4{
+    font-size: 1.5rem;
+}
+
+.popUp button.cancel{
+    background-color: #37393f;
+}
+.popUp button.cancel:hover{
+    background-color: #202124;
+}
+
+.popUp button {
+    font-family: 'Noto Sans', sans-serif;
+    background-color: #b54213;
+    align-self: center;
+    width: 10rem;
+    height: 2rem;
+    margin: .2rem;
+    border: 2px solid black;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.popUp button:hover {
+    background-color: #d44d18;
+}
+
+.popUp select{
+    cursor: pointer;
+    background-color: #f7cab8;
+    width: 10rem;
+    height: 3rem;
+    margin: 2.5rem 0 2rem 0;
+    padding-left: .5rem;
+    border: 2px solid black;
+    border-radius: 0;
+}
+
+
 body {
-    max-width: 1000px;
-    min-width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: digi;
-    margin: 0;
+    padding: 2% 2%;
     text-align: center;
     background-color: #202124;
+    background-image: url(./bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     margin: auto;
     color :whitesmoke;
-    font-size: larger;
-    padding: 2% 2%;
+}
+
+.board {
+    max-width: 1000px;
+    min-width: 800px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px inset;
+    background-color: #2e3035f8;
+    padding: 1rem;
+}
+
+.middle, .left, .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
 }
 
 button {
     cursor: pointer;
 }
 
-.board {
-    border: 1px inset;
-    background-color: #2e3035;
-    padding: 1rem;
+h1,h2,h3,h4 {
     margin: 0;
-}
-
-#scoreboard {
-    margin-top: -3rem;
-}
-.timeout, .foul, .game {
-    font-size: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-h4 {
-    margin-top: -1rem;
+    padding: 0;
+    font-size: 2em;
 }
 
 .box {
     background-color: black;
-    width: auto;
-    height: 1.5em; 
-    padding-top: .2em;
-    border-radius: 5px; 
+    padding: 5% 0;
+    margin-bottom: 1rem;
     text-shadow: 
     0 0 10px #FAD805, 
     0 0 10px #FAD805, 
     0 0 10px #FAD805;
+    border: 1px inset;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
 }
 
-.winner {
-    visibility: hidden;
-    text-shadow: 
-    0 0 10px #FAD805, 
-    0 0 10px #FAD805, 
-    0 0 10px #FAD805;
-}
-
-#timer {
+.timer {
     width: 10rem;
-    margin: auto;
+    height: 5rem;
+    font-size: 2em;
 }
 
-#home-score, #guest-score {
-    font-size: 4rem;
-    text-shadow: 
-    0 0 10px #fa2a05, 
-    0 0 10px #fa2a05, 
-    0 0 10px #fa2a05;
+.period {
+    width: 5rem;
+    height: 2.5rem;
+    font-size: 1em;
 }
 
 #timer, #period {
@@ -85,29 +149,60 @@ h4 {
     0 0 10px #73fa05;
 }
 
-.flex {
-    display: flex;
-    justify-content: space-between;
+#home-score, #guest-score {
+    font-size: 5rem;
+    text-shadow: 
+    0 0 10px #fa2a05, 
+    0 0 10px #fa2a05, 
+    0 0 10px #fa2a05;
 }
 
-#scoreboard {
-    display: flex;
-    justify-content: space-around;
+#home-winner, #guest-winner {
+    visibility: hidden;
+    height: 3rem;
+    font-size: 3rem;
+    text-shadow: 
+    0 0 10px #FAD805, 
+    0 0 10px #FAD805, 
+    0 0 10px #FAD805;
 }
 
-.period {
-    align-self: center;
-    margin-top: -12rem;
-    width: 5rem;
+#newgame {
+    background-color: #438f06;
+    color: black;
+}
+
+#newgame:hover {
+    background-color: #316804;
+}
+
+#newgame:active, #newgame:disabled {
+    background-color: #234b03;
 }
 
 .increment, .timeout-foul {
     display: flex;
 }
 
-.btn {
-    margin-top: 1rem;
+.game-container {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+.game-container button{
+    font-family: 'Noto Sans', sans-serif;
+    background-color: transparent;
+    align-self: center;
+    width: 10rem;
+    height: 2rem;
+    margin: .5rem;
+    border: 2px solid black;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
 .increment button {
     font-family: 'Noto Sans', sans-serif;
     background-color: transparent;
@@ -127,33 +222,6 @@ h4 {
     border: 2px solid black;
     color: whitesmoke;
 }
-.game {
-    margin-top: -6rem;
-}
-
-#newgame {
-    background-color: #438f06;
-    color: black;
-}
-
-#newgame:hover {
-    background-color: #316804;
-}
-
-#newgame:active, #newgame:disabled {
-    background-color: #234b03;
-}
-
-.game button {
-    font-family: 'Noto Sans', sans-serif;
-    background-color: transparent;
-    align-self: center;
-    width: 10rem;
-    height: 2rem;
-    margin: .5rem;
-    border: 2px solid black;
-    color: whitesmoke;
-}
 
 button:hover {
     background-color: #474a50;
@@ -164,5 +232,68 @@ button:active, button:disabled {
     cursor: default;
 }
 
+@media screen and (max-width:1000px) {
+    .board {
+        display: none;
+    }
 
+    .board-mobile {
+        visibility: visible;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        border: 1px inset;
+        background-color: #2e3035f8;
+        padding: 1rem;
+    }
+    h1 {
+        margin: 0;
+    }
+    .box, .timer {
+        padding: 0;
+    }
 
+    .teams {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .flex {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    #timer {
+        font-size: 2rem;
+    }
+
+    #home-score, #guest-score {
+        font-size: 2rem;
+    }
+
+    .increment, .timeout-foul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+
+    .increment button, .timeout-foul button {
+        margin: .2rem;
+        width: 10rem;
+        height: 3rem;
+    }
+
+    .game-container {
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .game-container button{
+        width: 90%;
+        height: 3rem;
+    }
+}
