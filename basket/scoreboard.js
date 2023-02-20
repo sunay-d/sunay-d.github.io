@@ -42,11 +42,11 @@ function setLeader(){
     let leader = homeScore > guestScore ? "home" : "guest"
     let opponent = homeScore > guestScore ? "guest" : "home"
     if (homeScore-guestScore) {
-        document.getElementById(`${leader}-winner`).forEach(element => element.style.visibility = "visible")
-        document.getElementById(`${opponent}-winner`).forEach(element => element.style.visibility = "hidden")
+        document.querySelectorAll(`#${leader}-winner`).forEach(element => element.style.visibility = "visible")
+        document.querySelectorAll(`#${opponent}-winner`).forEach(element => element.style.visibility = "hidden")
     }else {
-        document.getElementById(`${leader}-winner`).forEach(element => element.style.visibility = "hidden")
-        document.getElementById(`${opponent}-winner`).forEach(element => element.style.visibility = "hidden")
+        document.querySelectorAll(`#${leader}-winner`).forEach(element => element.style.visibility = "hidden")
+        document.querySelectorAll(`#${opponent}-winner`).forEach(element => element.style.visibility = "hidden")
     }
 }
 
