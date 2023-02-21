@@ -17,7 +17,7 @@ The app is built using modern web development technologies such as HTML, CSS, an
 
 This image editor is an ideal solution for anyone looking to enhance their photographs, whether it's for personal or professional use. The app can be used by photographers, designers, bloggers, or anyone who wants to make their images stand out from the crowd.
 
-##F uture Development:
+## Future Development:
 
 Future iterations of the app could include additional features such as the ability to add filters or text to images, as well as options for cropping and resizing.
 
