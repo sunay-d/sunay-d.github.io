@@ -11,135 +11,145 @@
         <title>Sudoku</title>
 </head>
 <body>
-        <h1>SUDOKU</h1>
+        <h1 class="title">SUDOKU</h1>
         <div class="newpuzzle">
                 <h4>New Puzzle</h4>
-                <button class="btn" id="easy">Easy</button>
-                <button class="btn" id="medium">Medium</button>
-                <button class="btn" id="hard">Hard</button>    
+                <button class="btn" data-game="25" id="easy">Easy</button>
+                <button class="btn" data-game="35" id="medium">Medium</button>
+                <button class="btn" data-game="45" id="hard">Hard</button>    
         </div>
         <div class="game">
+                <p id="message" class="message"></p>
+                <p id="timer" class="timer">00:00</p>
                 <div class="board">
                         <div class="square1">
-                                <div  class="cell" id="11" original="true" tabindex="1"></div>
-                                <div  class="cell" id="12" original="true" tabindex="1"></div>
-                                <div  class="cell" id="13" original="true" tabindex="1"></div>
-                                <div  class="cell" id="21" original="true" tabindex="1"></div>
-                                <div  class="cell" id="22" original="true" tabindex="1"></div>
-                                <div  class="cell" id="23" original="true" tabindex="1"></div>
-                                <div  class="cell" id="31" original="true" tabindex="1"></div>
-                                <div  class="cell" id="32" original="true" tabindex="1"></div>
-                                <div  class="cell" id="33" original="true" tabindex="1"></div>
+                                <div  class="cell" id="11" data-cell="11" tabindex="1"></div>
+                                <div  class="cell" id="12" data-cell="12" tabindex="1"></div>
+                                <div  class="cell" id="13" data-cell="13" tabindex="1"></div>
+                                <div  class="cell" id="21" data-cell="21" tabindex="1"></div>
+                                <div  class="cell" id="22" data-cell="22" tabindex="1"></div>
+                                <div  class="cell" id="23" data-cell="23" tabindex="1"></div>
+                                <div  class="cell" id="31" data-cell="31" tabindex="1"></div>
+                                <div  class="cell" id="32" data-cell="32" tabindex="1"></div>
+                                <div  class="cell" id="33" data-cell="33" tabindex="1"></div>
                         </div>
                         <div class="square2">
-                                <div  class="cell" id="14" original="true" tabindex="1"></div>
-                                <div  class="cell" id="15" original="true" tabindex="1"></div>
-                                <div  class="cell" id="16" original="true" tabindex="1"></div>
-                                <div  class="cell" id="24" original="true" tabindex="1"></div>
-                                <div  class="cell" id="25" original="true" tabindex="1"></div>
-                                <div  class="cell" id="26" original="true" tabindex="1"></div>
-                                <div  class="cell" id="34" original="true" tabindex="1"></div>
-                                <div  class="cell" id="35" original="true" tabindex="1"></div>
-                                <div  class="cell" id="36" original="true" tabindex="1"></div>    
+                                <div  class="cell" id="14" data-cell="14" tabindex="1"></div>
+                                <div  class="cell" id="15" data-cell="15" tabindex="1"></div>
+                                <div  class="cell" id="16" data-cell="16" tabindex="1"></div>
+                                <div  class="cell" id="24" data-cell="24" tabindex="1"></div>
+                                <div  class="cell" id="25" data-cell="25" tabindex="1"></div>
+                                <div  class="cell" id="26" data-cell="26" tabindex="1"></div>
+                                <div  class="cell" id="34" data-cell="34" tabindex="1"></div>
+                                <div  class="cell" id="35" data-cell="35" tabindex="1"></div>
+                                <div  class="cell" id="36" data-cell="36" tabindex="1"></div>    
                         </div>
                         <div class="square1">
-                                <div  class="cell" id="17" original="true" tabindex="1"></div>
-                                <div  class="cell" id="18" original="true" tabindex="1"></div>
-                                <div  class="cell" id="19" original="true" tabindex="1"></div>
-                                <div  class="cell" id="27" original="true" tabindex="1"></div>
-                                <div  class="cell" id="28" original="true" tabindex="1"></div>
-                                <div  class="cell" id="29" original="true" tabindex="1"></div>
-                                <div  class="cell" id="37" original="true" tabindex="1"></div>
-                                <div  class="cell" id="38" original="true" tabindex="1"></div>
-                                <div  class="cell" id="39" original="true" tabindex="1"></div>
+                                <div  class="cell" id="17" data-cell="17" tabindex="1"></div>
+                                <div  class="cell" id="18" data-cell="18" tabindex="1"></div>
+                                <div  class="cell" id="19" data-cell="19" tabindex="1"></div>
+                                <div  class="cell" id="27" data-cell="27" tabindex="1"></div>
+                                <div  class="cell" id="28" data-cell="28" tabindex="1"></div>
+                                <div  class="cell" id="29" data-cell="29" tabindex="1"></div>
+                                <div  class="cell" id="37" data-cell="37" tabindex="1"></div>
+                                <div  class="cell" id="38" data-cell="38" tabindex="1"></div>
+                                <div  class="cell" id="39" data-cell="39" tabindex="1"></div>
                         </div>
                         <div class="square2">
-                                <div  class="cell" id="41" original="true" tabindex="1"></div>
-                                <div  class="cell" id="42" original="true" tabindex="1"></div>
-                                <div  class="cell" id="43" original="true" tabindex="1"></div>
-                                <div  class="cell" id="51" original="true" tabindex="1"></div>
-                                <div  class="cell" id="52" original="true" tabindex="1"></div>
-                                <div  class="cell" id="53" original="true" tabindex="1"></div>
-                                <div  class="cell" id="61" original="true" tabindex="1"></div>
-                                <div  class="cell" id="62" original="true" tabindex="1"></div>
-                                <div  class="cell" id="63" original="true" tabindex="1"></div>
+                                <div  class="cell" id="41" data-cell="41" tabindex="1"></div>
+                                <div  class="cell" id="42" data-cell="42" tabindex="1"></div>
+                                <div  class="cell" id="43" data-cell="43" tabindex="1"></div>
+                                <div  class="cell" id="51" data-cell="51" tabindex="1"></div>
+                                <div  class="cell" id="52" data-cell="52" tabindex="1"></div>
+                                <div  class="cell" id="53" data-cell="53" tabindex="1"></div>
+                                <div  class="cell" id="61" data-cell="61" tabindex="1"></div>
+                                <div  class="cell" id="62" data-cell="62" tabindex="1"></div>
+                                <div  class="cell" id="63" data-cell="63" tabindex="1"></div>
                         </div>
                         <div class="square1">
-                                <div  class="cell" id="44" original="true" tabindex="1"></div>
-                                <div  class="cell" id="45" original="true" tabindex="1"></div>
-                                <div  class="cell" id="46" original="true" tabindex="1"></div>
-                                <div  class="cell" id="54" original="true" tabindex="1"></div>
-                                <div  class="cell" id="55" original="true" tabindex="1"></div>
-                                <div  class="cell" id="56" original="true" tabindex="1"></div>
-                                <div  class="cell" id="64" original="true" tabindex="1"></div>
-                                <div  class="cell" id="65" original="true" tabindex="1"></div>
-                                <div  class="cell" id="66" original="true" tabindex="1"></div>
+                                <div  class="cell" id="44" data-cell="44" tabindex="1"></div>
+                                <div  class="cell" id="45" data-cell="45" tabindex="1"></div>
+                                <div  class="cell" id="46" data-cell="46" tabindex="1"></div>
+                                <div  class="cell" id="54" data-cell="54" tabindex="1"></div>
+                                <div  class="cell" id="55" data-cell="55" tabindex="1"></div>
+                                <div  class="cell" id="56" data-cell="56" tabindex="1"></div>
+                                <div  class="cell" id="64" data-cell="64" tabindex="1"></div>
+                                <div  class="cell" id="65" data-cell="65" tabindex="1"></div>
+                                <div  class="cell" id="66" data-cell="66" tabindex="1"></div>
                         </div>
                         <div class="square2">
-                                <div  class="cell" id="47" original="true" tabindex="1"></div>
-                                <div  class="cell" id="48" original="true" tabindex="1"></div>
-                                <div  class="cell" id="49" original="true" tabindex="1"></div>
-                                <div  class="cell" id="57" original="true" tabindex="1"></div>
-                                <div  class="cell" id="58" original="true" tabindex="1"></div>
-                                <div  class="cell" id="59" original="true" tabindex="1"></div>
-                                <div  class="cell" id="67" original="true" tabindex="1"></div>
-                                <div  class="cell" id="68" original="true" tabindex="1"></div>
-                                <div  class="cell" id="69" original="true" tabindex="1"></div>
+                                <div  class="cell" id="47" data-cell="47" tabindex="1"></div>
+                                <div  class="cell" id="48" data-cell="48" tabindex="1"></div>
+                                <div  class="cell" id="49" data-cell="49" tabindex="1"></div>
+                                <div  class="cell" id="57" data-cell="57" tabindex="1"></div>
+                                <div  class="cell" id="58" data-cell="58" tabindex="1"></div>
+                                <div  class="cell" id="59" data-cell="59" tabindex="1"></div>
+                                <div  class="cell" id="67" data-cell="67" tabindex="1"></div>
+                                <div  class="cell" id="68" data-cell="68" tabindex="1"></div>
+                                <div  class="cell" id="69" data-cell="69" tabindex="1"></div>
                         </div>
                         <div class="square1">
-                                <div  class="cell" id="71" original="true" tabindex="1"></div>
-                                <div  class="cell" id="72" original="true" tabindex="1"></div>
-                                <div  class="cell" id="73" original="true" tabindex="1"></div>
-                                <div  class="cell" id="81" original="true" tabindex="1"></div>
-                                <div  class="cell" id="82" original="true" tabindex="1"></div>
-                                <div  class="cell" id="83" original="true" tabindex="1"></div>
-                                <div  class="cell" id="91" original="true" tabindex="1"></div>
-                                <div  class="cell" id="92" original="true" tabindex="1"></div>
-                                <div  class="cell" id="93" original="true" tabindex="1"></div>
+                                <div  class="cell" id="71" data-cell="71" tabindex="1"></div>
+                                <div  class="cell" id="72" data-cell="72" tabindex="1"></div>
+                                <div  class="cell" id="73" data-cell="73" tabindex="1"></div>
+                                <div  class="cell" id="81" data-cell="81" tabindex="1"></div>
+                                <div  class="cell" id="82" data-cell="82" tabindex="1"></div>
+                                <div  class="cell" id="83" data-cell="83" tabindex="1"></div>
+                                <div  class="cell" id="91" data-cell="91" tabindex="1"></div>
+                                <div  class="cell" id="92" data-cell="92" tabindex="1"></div>
+                                <div  class="cell" id="93" data-cell="93" tabindex="1"></div>
                         </div> 
                         <div class="square2">
-                                <div  class="cell" id="74" original="true" tabindex="1"></div>
-                                <div  class="cell" id="75" original="true" tabindex="1"></div>
-                                <div  class="cell" id="76" original="true" tabindex="1"></div>
-                                <div  class="cell" id="84" original="true" tabindex="1"></div>
-                                <div  class="cell" id="85" original="true" tabindex="1"></div>
-                                <div  class="cell" id="86" original="true" tabindex="1"></div>
-                                <div  class="cell" id="94" original="true" tabindex="1"></div>
-                                <div  class="cell" id="95" original="true" tabindex="1"></div>
-                                <div  class="cell" id="96" original="true" tabindex="1"></div>
+                                <div  class="cell" id="74" data-cell="74" tabindex="1"></div>
+                                <div  class="cell" id="75" data-cell="75" tabindex="1"></div>
+                                <div  class="cell" id="76" data-cell="76" tabindex="1"></div>
+                                <div  class="cell" id="84" data-cell="84" tabindex="1"></div>
+                                <div  class="cell" id="85" data-cell="85" tabindex="1"></div>
+                                <div  class="cell" id="86" data-cell="86" tabindex="1"></div>
+                                <div  class="cell" id="94" data-cell="94" tabindex="1"></div>
+                                <div  class="cell" id="95" data-cell="95" tabindex="1"></div>
+                                <div  class="cell" id="96" data-cell="96" tabindex="1"></div>
                         </div>
                         <div class="square1">
-                                <div  class="cell" id="77" original="true" tabindex="1"></div>
-                                <div  class="cell" id="78" original="true" tabindex="1"></div>
-                                <div  class="cell" id="79" original="true" tabindex="1"></div>
-                                <div  class="cell" id="87" original="true" tabindex="1"></div>
-                                <div  class="cell" id="88" original="true" tabindex="1"></div>
-                                <div  class="cell" id="89" original="true" tabindex="1"></div>
-                                <div  class="cell" id="97" original="true" tabindex="1"></div>
-                                <div  class="cell" id="98" original="true" tabindex="1"></div>
-                                <div  class="cell" id="99" original="true" tabindex="1"></div>
+                                <div  class="cell" id="77" data-cell="77" tabindex="1"></div>
+                                <div  class="cell" id="78" data-cell="78" tabindex="1"></div>
+                                <div  class="cell" id="79" data-cell="79" tabindex="1"></div>
+                                <div  class="cell" id="87" data-cell="87" tabindex="1"></div>
+                                <div  class="cell" id="88" data-cell="88" tabindex="1"></div>
+                                <div  class="cell" id="89" data-cell="89" tabindex="1"></div>
+                                <div  class="cell" id="97" data-cell="97" tabindex="1"></div>
+                                <div  class="cell" id="98" data-cell="98" tabindex="1"></div>
+                                <div  class="cell" id="99" data-cell="99" tabindex="1"></div>
                         </div>
                 </div>
                 <div class="numbers">
-                        <button id="1" class="number">1</button>
-                        <button id="2" class="number">2</button>
-                        <button id="3" class="number">3</button>
-                        <button id="4" class="number">4</button>
-                        <button id="5" class="number">5</button>
-                        <button id="6" class="number">6</button>
-                        <button id="7" class="number">7</button>
-                        <button id="8" class="number">8</button>
-                        <button id="9" class="number">9</button>
-                        <button id="0" class="number">←</button>
+                        <button id="1" class="number" data-numbers="1">1</button>
+                        <button id="2" class="number" data-numbers="2">2</button>
+                        <button id="3" class="number" data-numbers="3">3</button>
+                        <button id="4" class="number" data-numbers="4">4</button>
+                        <button id="5" class="number" data-numbers="5">5</button>
+                        <button id="6" class="number" data-numbers="6">6</button>
+                        <button id="7" class="number" data-numbers="7">7</button>
+                        <button id="8" class="number" data-numbers="8">8</button>
+                        <button id="9" class="number" data-numbers="9">9</button>
+                        <button id="0" class="number" data-numbers="0">←</button>
                 </div>
                 <div class="bottom-btns">
-                        <button id="check">Check Solution</button>
-                        <button id="clear">Clear All</button>
+                        <button data-controls="check" id="check">Check Solution</button>
+                        <button data-controls="clear" id="clear">Clear All</button>
                 </div>
 
         </div>
-        
-        <div class="footer">created by Sunay Dogan, 2022</div>
-    <script src="sudoku.js"></script>
+        <!-- <div class="score">
+            <div class="container">
+                <h2>Statistics</h2>
+                <h3>Best:</h3>
+                <h3>Last 5:</h3>
+            </div>
+        </div> -->
+        <footer>created by Sunay Dogan, 2022</footer>
+    <script src="./sudokuGenerator.js" type="module"></script>
+    <script src="./sudokuSolver.js" type="module"></script>
+    <script src="./script.js" type="module"></script>
 </body>
 </html>

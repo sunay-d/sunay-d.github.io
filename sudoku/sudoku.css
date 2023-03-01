@@ -1,32 +1,45 @@
 * {
     box-sizing: border-box;
-} 
+}
 
-body {
-    max-height: 100vh;
-    margin: 0;
+body{
+    max-width: 1500px;
+    max-height: 750px;
+    margin: 0 auto;
+    padding: 0;
+    display: grid;
+    grid-template-areas: "title title score" "newpuzzle game score" "footer footer footer";
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 10% 85% 5%;
+    height: 100vh;
     background-color:#bab2b5;
     font-family: 'Philosopher', sans-serif;
 }
 
-h1 {
-    margin: 3rem 6%;
+/* TITLE AREA */ 
+.title {
+    margin-top: 3rem;
+    padding-left: 5rem;
+    grid-area: title;
     text-align: left;
     font-size: 3rem;
     color: #231f20;
 }
 
+/* NEW PUZZLE */ 
 .newpuzzle {
-    justify-self: auto;
-    margin-left: 6%;
-    width: fit-content;
-    display: grid;
-    /* grid-template-areas: (header, btn, btn, btn);  */
+    padding-left: 5rem;
+    margin-top: 5rem; 
+    grid-area: newpuzzle;
+    display: flex;
+    flex-direction: column;
 }
+
 h4 {
     font-size: 1.5rem;
     color: #ba5c12;
 }
+
 button {
     border:none;
     margin-top: 0.5rem;
@@ -36,6 +49,7 @@ button {
     background-color: #231f20;
     color:#eee2dc;
     border-radius: 5px;
+    cursor: pointer;
 }
 button:hover{
     background-color: #ba5c12;
@@ -43,39 +57,32 @@ button:hover{
 button:active{
     background-color: #e26d13;
 }
-#check {
-    background-color: #ba5c12;
-    margin-bottom: 2rem;
-}
-#check:hover{
-    background-color: #e26d13;
-}
-#check:active{
-    background-color: #ba5c12;
-    color: #eee2dc;
-}
+
+/* GAME */ 
 .game {
+    margin-top: -2rem;
+    grid-area: game;
     display: grid;
+    grid-template-areas: "message message" "timer timer" "board num" "btns btns";
     grid-template-columns: auto auto;
-    justify-content:center;
-    column-gap: 1rem;
-}
-.numbers {
-    margin-top: -16rem;
-    padding: 0;
-    display: inline-block;
-    display: grid;
-    grid-column: auto;
     justify-content: center;
-    width: min-content;
+    align-items: center;
 }
-.number {
-    margin: 0;
-    width: 3rem;
-    font-family:'Philosopher', sans-serif;
+
+.message {
+    grid-area: message;
+    margin: auto;
+    padding-bottom: 1rem;
 }
+
+.timer {
+    grid-area: timer;
+    margin: auto;
+    padding: 0;
+}
+
 .board {
-    margin-top: -16rem;
+    grid-area: board;
     display: inline-block;
     width: fit-content;
     background-color:  #231f20;;
@@ -84,6 +91,17 @@ button:active{
     justify-content: center;
     column-gap: 0.2rem;
     row-gap: 0.2rem;
+}
+
+.cell {
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid  #231f20;
+    font-size: 2.2rem;
+    text-align: center;
+    font-weight: bolder;
+    cursor: default;
 }
 
 .square1, .square2 {
@@ -101,28 +119,49 @@ button:active{
     background-color: #eee2dc;
 }
 
-.numbers{
+.numbers {
+    margin-left: 1rem;
+    grid-area: num;
+    padding: 0;
+    display: inline-block;
     display: grid;
-    grid-template-columns: auto;
+    grid-column: auto;
+    width: min-content;
 }
-.cell {
+
+.number {
     margin: 0;
     width: 3rem;
-    height: 3rem;
-    border: 1px solid  #231f20;
-    font-size: 2.2rem;
-    text-align: center;
-    font-weight: bolder;
-    cursor: default;
+    font-family:'Philosopher', sans-serif;
+    margin-bottom: .2rem;
 }
-.cell[original="false"]{
-    color: #ba5c12;
+
+.bottom-btns {
+    grid-area: btns;
 }
-.cell[original="false"]:hover {
+
+#check {
     background-color: #ba5c12;
-    cursor:pointer;
 }
-.footer{
+
+#check:hover {
+    background-color: #e26d13;
+}
+
+/* SCORE */ 
+.score {
+    grid-area: score;
+    background-color: #231f2042;
+    height: 100vh;
+    color:#231f20;
+}
+
+.container {
+    margin-left: 3rem;
+}
+
+/* FOOTER */ 
+footer{
     text-align: center;
     background-color: #231f2028;
     position: fixed;
@@ -131,11 +170,36 @@ button:active{
     width: 100%;
     color:#231f20;
 }
+
+.selected {
+    background-color: #231f20;
+}
+
+.removed {
+    cursor: pointer;
+    color: #e26d13;
+}
+
+.false-answer {
+    background-color: red;
+    color: black;
+}
+
+.correct-answer {
+    background-color: rgb(126, 185, 36);
+    color: black;
+}
+
 @media screen and (max-width: 1000px) {
     body{
         display: flex;
         flex-direction: column;
         justify-content: center;
+    }
+    .title{
+        text-align: center;
+        padding: 0;
+        width:100%;
     }
     h1 {
         text-align: center;
@@ -150,6 +214,7 @@ button:active{
         grid-template-areas: 
         "h h h" 
         "b1 b2 b3";
+        padding: 0;
     }
     .newpuzzle h4{
         justify-self: center;
