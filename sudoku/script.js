@@ -53,7 +53,7 @@ function clearAll() {
 }
 
 function checkSolution() {
-    resetTimer()
+
     let isCorrect = true
     document.querySelectorAll(".removed").forEach(item => {
         let row = Number(item.id[0])-1
@@ -66,8 +66,13 @@ function checkSolution() {
         }
     })
     if (isCorrect){
-        document.getElementById("message").textContent="Congratulations!"
+        const min = document.getElementById("timer").textContent.slice(0,2)
+        const sec = document.getElementById("timer").textContent.slice(3,5)
+        document.getElementById("message").textContent=`Congratulations! You finished in ${min==="00" ? "0" : min} minutes and ${sec} seconds`
     }else {
         document.getElementById("message").textContent="You made mistakes!"
     }
+
+    resetTimer()
+
 }
