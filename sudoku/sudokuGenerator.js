@@ -82,7 +82,6 @@ function generateSudoku(){
 }
 
 function displaySudoku(sudoku, difficulty=25) {
-    console.log("display sudoku")
     let emptyCells = []
     while (emptyCells.length < difficulty){
         let randomCell = Math.floor(Math.random()*81)
@@ -109,9 +108,14 @@ function displaySudoku(sudoku, difficulty=25) {
         }
     })
 
+    let moves = []
+    localStorage.setItem("moves", JSON.stringify(moves))
     timer
 
 }
+
+
+
 function startTimer() {
     const time = document.getElementById("timer").textContent
     let second = (Number(time.slice(3,5)) + 1)%60
@@ -128,6 +132,8 @@ export function resetTimer() {
 let timer = setInterval(startTimer,1000)
 
 function newGame(difficulty) {
+    document.getElementById("check").disabled = false
+    document.getElementById("clear").disabled = false
     sudoku = generateSudoku()
     displaySudoku(sudoku, difficulty)
     startTimer()

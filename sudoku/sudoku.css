@@ -16,6 +16,7 @@ body{
     font-family: 'Philosopher', sans-serif;
 }
 
+
 /* TITLE AREA */ 
 .title {
     margin-top: 3rem;
@@ -73,6 +74,8 @@ button:active{
     grid-area: message;
     margin: auto;
     padding-bottom: 1rem;
+    word-wrap: break-word;
+    padding: 0 10%;
 }
 
 .timer {
@@ -138,6 +141,8 @@ button:active{
 
 .bottom-btns {
     grid-area: btns;
+    display: flex;
+    gap: .5rem;
 }
 
 #check {
@@ -190,6 +195,12 @@ footer{
     color: black;
 }
 
+.bottom-btns #check:disabled, #clear:disabled {
+    background-color: #41393b;
+    color: whitesmoke;
+    cursor: auto;
+}
+
 @media screen and (max-width: 1000px) {
     body{
         display: flex;
@@ -227,6 +238,10 @@ footer{
         margin-right: 0.1rem;
         margin-top: -1.5rem;
     }
+
+    .message {
+        padding-bottom: 1rem;
+    }
     .game { 
         align-self: center;
         display: flex;
@@ -255,7 +270,7 @@ footer{
         justify-content: center;
         column-gap: 0.2rem;
         row-gap: 0.2rem;
-    
+        margin-left: -0.2rem;
     }
     .number, .btn {  
         width: 6rem;

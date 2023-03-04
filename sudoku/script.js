@@ -13,8 +13,23 @@ document.addEventListener("click", e => {
         }
     }else if (e.target.dataset.numbers){
         if(selectedCell){
-            selectedCell.textContent = e.target.dataset.numbers === "0" ? '' : e.target.dataset.numbers
+            const num = e.target.dataset.numbers
+            const prev = selectedCell.textContent
+            if (e.target.dataset.numbers === "back"){
+                let moves = JSON.parse(localStorage.getItem("moves"))
+                if (moves.length != 0){
+                    document.getElementById(moves[moves.length-1][0]).textContent = moves[moves.length-1][1]
+                    moves.pop()
+                    localStorage.setItem("moves", JSON.stringify(moves))
+                }
+            }else {
+                selectedCell.textContent = (selectedCell.textContent === num) ? '' : num
+                let moves = JSON.parse(localStorage.getItem("moves"))
+                moves.push([selectedCell.id, prev])
+                localStorage.setItem("moves", JSON.stringify(moves))
+            }
         }
+
     }else if (e.target.dataset.controls){
         if(e.target.dataset.controls === 'clear'){
             clearAll()
@@ -36,9 +51,20 @@ document.addEventListener("keyup", e => {
     if (selectedCell){
         const acceptable = ["1","2","3","4","5","6","7","8","9","Backspace","Delete"]
         if (acceptable.includes(e.key)){
-            selectedCell.textContent = (e.key === "Backspace" || e.key === "Delete") ? '' : e.key
+            let moves = JSON.parse(localStorage.getItem("moves"))
+            if (e.key === "Backspace"){
+                if (moves.length != 0){
+                    document.getElementById(moves[moves.length-1][0]).textContent = moves[moves.length-1][1]
+                    moves.pop()
+                    localStorage.setItem("moves", JSON.stringify(moves))
+                }
+            }else {
+                let prev = selectedCell.textContent
+                selectedCell.textContent = (e.key === "Delete" || selectedCell.textContent === e.key) ? '' : e.key
+                moves.push([selectedCell.id, prev, selectedCell.textContent])
+                localStorage.setItem("moves", JSON.stringify(moves))
+            }
         }
-    
     }
 })
 
@@ -50,10 +76,12 @@ function clearAll() {
             item.textContent = ''
         }
     })
+    localStorage.setItem("moves", JSON.stringify([]))
 }
 
 function checkSolution() {
-
+    document.getElementById("check").disabled = true
+    document.getElementById("clear").disabled = true
     let isCorrect = true
     document.querySelectorAll(".removed").forEach(item => {
         let row = Number(item.id[0])-1
@@ -73,6 +101,7 @@ function checkSolution() {
         document.getElementById("message").textContent="You made mistakes!"
     }
 
+    localStorage.setItem("moves", JSON.stringify([]))
     resetTimer()
 
 }
