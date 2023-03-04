@@ -134,6 +134,7 @@ let timer = setInterval(startTimer,1000)
 function newGame(difficulty) {
     document.getElementById("check").disabled = false
     document.getElementById("clear").disabled = false
+    document.querySelectorAll(".number").forEach(item => item.disabled = false)
     sudoku = generateSudoku()
     displaySudoku(sudoku, difficulty)
     startTimer()

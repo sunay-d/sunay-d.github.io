@@ -195,7 +195,7 @@ footer{
     color: black;
 }
 
-.bottom-btns #check:disabled, #clear:disabled {
+#check:disabled, #clear:disabled, .number:disabled {
     background-color: #41393b;
     color: whitesmoke;
     cursor: auto;

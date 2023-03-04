@@ -82,6 +82,7 @@ function clearAll() {
 function checkSolution() {
     document.getElementById("check").disabled = true
     document.getElementById("clear").disabled = true
+    document.querySelectorAll(".number").forEach(item => item.disabled = true)
     let isCorrect = true
     document.querySelectorAll(".removed").forEach(item => {
         let row = Number(item.id[0])-1
