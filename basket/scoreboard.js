@@ -21,6 +21,7 @@ document.addEventListener("click", (e) => {
 function newGame() {
     const duration = Number(document.getElementById("duration").value)*60;
     [homeScore, guestScore, homeTimeOut, guestTimeOut, homeFoul, guestFoul, period, pause] = [0,0,0,0,0,0,1,0]
+    pauseTimer()
     display()
     clearInterval(timerInterval)
     startTimer(duration)
